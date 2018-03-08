@@ -45,3 +45,8 @@ var instagram = {
 };
 
 instagram.request();
+
+var nav = {
+    nav: $('.hero__menu'),
+    logoSrc: 'img/logo_small.png'
+};
