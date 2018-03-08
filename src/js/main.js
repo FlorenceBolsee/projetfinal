@@ -1,3 +1,51 @@
+var scrollLevel = 0;
+var windowWidth = $(window).width();
+var windowHeight = $(window).height();
+
+/*
+
+=========================
+
+  🎨 FUNCTION SCROLL 🎨
+
+=========================
+
+*/
+
+$(document).scroll(
+  function(){
+    scrollLevel = $(document).scrollTop();
+    console.log(scrollLevel);
+  }
+);
+
+/*
+
+===============
+
+  🎨 HEARDER SIZING 🎨
+
+===============
+
+*/
+
+function headerSizing(){
+  $('.hero').css('height', windowHeight);
+}
+
+headerSizing();
+
+
+/*
+
+===============
+
+  🎨 SWIPER 🎨
+
+===============
+
+*/
+
 var swiper = new Swiper('.swiper1', {
       slidesPerView: 1,
       loop: true,
@@ -10,6 +58,16 @@ var swiper = new Swiper('.swiper1', {
         prevEl: '.swiper-button-prev',
       },
 });
+
+/*
+
+=========================
+
+  🎨 INCLUDE INSTAGRAM 🎨
+
+=========================
+
+*/
 
 var instagram = {
   token: "1975026352.c6e2de8.3ef7709ab1e847beb0b6805c7c985fad",
@@ -46,7 +104,63 @@ var instagram = {
 
 instagram.request();
 
+/*
+
+=========================
+
+  🎨 NAVIGATION HEADER 🎨
+
+=========================
+
+*/
+
 var nav = {
-    nav: $('.hero__menu'),
-    logoSrc: 'img/logo_small.png'
+    nav: $('.menu__pages'),
+    logoLink: $('.menu__link--logo'),
+    logoSrc: 'img/logo_small.png',
+    burger: $('.burger'),
+    opened: false,
+    init: function(){
+      this.logoLink.empty();
+      if(scrollLevel < windowHeight){
+        this.logoLink.append('Home');
+      } else {
+        this.logoLink.append('<img class="menu__logo" src="' + this.logoSrc + '" alt="Home">');
+      }
+    },
+    opening: function(){
+      this.burger.click(function(){
+        if(!this.opened){
+          this.nav.addClass('open');
+          this.burger.addClass('open');
+          this.opened = true;
+        } else {
+          this.nav.removeClass('open');
+          this.burger.removeClass('open');
+          this.opened = false;
+        }
+      }.bind(this));
+    }
 };
+
+nav.init();
+nav.opening();
+
+/*
+
+=========================
+
+  🎨 FUNCTION RESIZE 🎨
+
+=========================
+
+*/
+
+$(window).resize(
+  function(){
+    windowWidth = $(window).width();
+    windowHeight = $(window).height();
+    nav.init();
+    headerSizing();
+  }
+);

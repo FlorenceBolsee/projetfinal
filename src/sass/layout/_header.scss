@@ -1,0 +1,86 @@
+.hero {
+  position: relative;
+  padding: $gutter;
+  .menu, .wrapper {
+    position: relative;
+    z-index: 10;
+  }
+}
+.hero__bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 1;
+}
+.burger {
+  position: fixed;
+  top: $gutter;
+  right: $gutter;
+  display: inline-flex;
+  flex-flow: column;
+  padding: 7px 4px;
+  background: #fff;
+  border: 1px solid $blue;
+  cursor: pointer;
+  z-index: 100;
+}
+.burger.open {
+  border: 1px solid transparent;
+  background: none;
+}
+.burger__bar {
+  width: 21px;
+  height: 1px;
+  background: $blue;
+}
+.burger__bar + .burger__bar {
+  margin-top: 5px;
+}
+.menu__pages {
+  position: fixed;
+  top: $gutter;
+  right: $gutter;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid $blue;
+  width: 31px;
+  height: 29px;
+  padding: 0;
+  overflow: hidden;
+  z-index: 99;
+  .menu__link {
+    display: block;
+    opacity: 0;
+    position: relative;
+    right: -200px;
+  }
+}
+
+.menu__pages.open {
+  width: 180px;
+  height: 340px;
+  padding: 3.6rem;
+  @include transition;
+  .menu__page {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .menu__link {
+    animation: .6s menuLinksApparition forwards;
+  }
+}
+.menu__cart {
+  position: fixed;
+  top: $gutter;
+  left: $gutter;
+  z-index: 100;
+}
+
+@keyframes menuLinksApparition {
+  0% {right: -200px; opacity: 0;}
+  50% {right: -200px; opacity: 0;}
+  100% {right: 0; opacity: 1;}
+}

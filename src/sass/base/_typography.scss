@@ -1,4 +1,5 @@
 @import "../helpers/variables.scss";
+@import "../helpers/mixins.scss";
 
 .lato {
     font-family: 'Lato', sans-serif;
@@ -14,16 +15,58 @@ html {
 
 body {
     font-size: 1.4rem;
+    color: $grey2;
     @extend .lato;
+    line-height: 2rem;
 }
 
 a {
     color: $accentColor;
-    position: relative;
     @include transition;
     &:hover {
         text-decoration: none;
         color: $accentColor;
-        top: -2px;
     }
+}
+
+/*
+
+===============
+
+  🎨 HEADER 🎨
+
+===============
+
+*/
+
+.hero__title {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 300;
+  @extend .josefin;
+}
+
+
+.menu__page {
+  display: none;
+  list-style-type: none;
+  text-align: right;
+  padding: .8rem;
+  overflow: hidden;
+}
+
+.menu__link {
+  color: $blue;
+  font-size: 1.8rem;
+  &:hover {
+    color: $blue;
+  }
+}
+
+.menu__cart {
+  color: #fff;
+  font-size: 3rem;
+  &:hover {
+    color: #fff;
+  }
 }

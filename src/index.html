@@ -7,20 +7,31 @@
 	<title>Christina Muenzner - Home</title>
 	<script defer src="js/fontawesome-all.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Lato:300,400,400i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700|Lato:300,400,400i,700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
-<body>
+<body class="homepage">
+
+<!--
+
+	===============
+
+	  🎨 HEADER 🎨
+
+	===============
+
+-->
+
 	<header class="hero">
+		<a href="#" class="menu__cart"><i class="menu__link menu__cart fas fa-shopping-basket"></i></a>
 		<div class="burger">
 			<span class="burger__bar burger__bar--top"></span>
 			<span class="burger__bar burger__bar--mid"></span>
 			<span class="burger__bar burger__bar--bot"></span>
 		</div>
 		<nav class="hero__menu menu">
-			<a href="#" class="menu__links"><i class="menu__cart fas fa-shopping-basket"></i></a>
 			<ul class="menu__pages">
-				<li class="menu__page"><a href="#" class="menu__link"><img class="menu__logo" src="" alt="Home"></a></li>
+				<li class="menu__page"><a href="#" class="menu__link menu__link--logo"></a></li>
 				<li class="menu__page"><a href="#" class="menu__link">About me</a></li>
 				<li class="menu__page"><a href="#" class="menu__link">Artworks</a></li>
 				<li class="menu__page"><a href="#" class="menu__link">Shop</a></li>
@@ -35,15 +46,48 @@
 		</div>
 		<video class="hero__bg" src="media/stock-footage-artist-brush-mix-color-oil-painting-on-palette-is-holding-in-his-hand-closeup.mp4" autoplay loop></video>
 	</header>
+
+	<!--
+
+		===============
+
+		  🎨 MAIN 🎨
+
+		===============
+
+	-->
+
 	<main class="content">
 		<div class="wrapper">
 			<h2 class="content__title">Home</h2>
+
+			<!--
+
+				=========================
+
+				  🎨 SECTION ABOUT ME 🎨
+
+				========================
+
+			-->
+
 			<section class="block block--about">
 				<h3 class="block__title">About me</h3>
 				<p class="block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				<img src="img/Spacehair.jpg" alt="paintings">
 				<a href="#" class="block__button">About me</a>
 			</section>
+
+			<!--
+
+				==============================
+
+				  🎨 SECTION LAST PAINTING 🎨
+
+				=============================
+
+			-->
+
 			<section class="block block--last-painting">
 				<div class="slide swiper-container swiper1">
 					<div class="swiper-wrapper">
@@ -77,6 +121,17 @@
 				</div>
 				<a href="#" class="block__button">Artworks</a>
 			</section>
+
+			<!--
+
+				============================
+
+				  🎨 SECTION COMMISSIONS 🎨
+
+				===========================
+
+			-->
+
 			<section class="block block--commissions">
 				<h3 class="block__title">How Commissions Work</h3>
 				<p class="block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -84,6 +139,17 @@
 				<img src="img/TheMoonsNeverSeenMeBefore_Room.jpg" alt="paintings">
 				<a href="#" class="block__button">About me</a>
 			</section>
+
+			<!--
+
+				=============================
+
+				  🎨 SECTION LAST PRODUCT 🎨
+
+				============================
+
+			-->
+
 			<section class="block block--last-product">
 				<div class="slide swiper-container swiper1">
 					<div class="swiper-wrapper">
@@ -118,6 +184,17 @@
 				<a href="#" class="block__button">Go to Shop</a>
 			</section>
 		</div>
+
+		<!--
+
+			==========================
+
+				🎨 SECTION LAST NEWS 🎨
+
+			=========================
+
+		-->
+
 		<section class="block block--last-news">
 			<div class="slide swiper-container swiper1">
 				<div class="swiper-wrapper">
@@ -156,6 +233,17 @@
 				<div class="swiper-button-prev"></div>
 			</div>
 		</section>
+
+		<!--
+
+			============================
+
+				🎨 SECTION EXHIBITIONS 🎨
+
+			===========================
+
+		-->
+
 		<div class="wrapper">
 			<section class="block block--exhibition">
 				<h3 class="block__title">How Commissions Work</h3>
@@ -164,6 +252,17 @@
 				<a href="#" class="block__button">Exhibitions</a>
 			</section>
 		</div>
+
+		<!--
+
+			===========================
+
+				🎨 SECTION LAST POSTS 🎨
+
+			==========================
+
+		-->
+
 		<section class="block block--last-post">
 			<div class="slide swiper-container swiper1">
 				<div class="swiper-wrapper">
@@ -203,6 +302,17 @@
 			</div>
 			<a href="#" class="block__button block__button--light">Blog</a>
 		</section>
+
+		<!--
+
+			==========================
+
+				🎨 SECTION INSTAGRAM 🎨
+
+			=========================
+
+		-->
+
 		<div class="wrapper">
 			<section class="block block__instagram">
 				<div class="slide swiper-container swiperInstagram">
@@ -214,6 +324,17 @@
 				</div>
 				<a href="#" class="block__button" target="_blank">Follow me on Instagram</a>
 			</section>
+
+			<!--
+
+				=============================
+
+				  🎨 SECTION TESTIMONIALS 🎨
+
+				============================
+
+			-->
+
 			<section class="block block__testimonials">
 				<img src="img/All_About_Grey_2Room-1.jpg" alt="painting">
 				<img src="img/5lTd-IQqC68.jpg" alt="portrait">
@@ -222,6 +343,17 @@
 			</section>
 		</div>
 	</main>
+
+	<!--
+
+		===============
+
+			🎨 FOOTER 🎨
+
+		==============
+
+	-->
+
 	<footer class="info">
 		<div class="wrapper">
 			<nav class="menu">
@@ -258,6 +390,16 @@
 			</div>
 		</div>
 	</footer>
+
+	<!--
+
+		============================
+
+			🎨 TEMPLATE HANDELBARS 🎨
+
+		===========================
+
+	-->
 
 	<script id="insta-template" type="text/x-handlebars-template">
 	  {{#each data}}
