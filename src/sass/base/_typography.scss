@@ -43,6 +43,8 @@ a {
   color: #fff;
   font-size: 2.2rem;
   font-weight: 300;
+  text-align: center;
+  padding-top: $marginMD;
   @extend .josefin;
 }
 
@@ -64,8 +66,11 @@ a {
 }
 
 .menu__cart {
-  color: #fff;
   font-size: 3rem;
+}
+
+.menu__cart.white {
+  color: #fff;
   &:hover {
     color: #fff;
   }

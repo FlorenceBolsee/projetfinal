@@ -2,39 +2,28 @@ var scrollLevel = 0;
 var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 
-/*
-
-=========================
-
-  🎨 FUNCTION SCROLL 🎨
-
-=========================
-
-*/
-
-$(document).scroll(
-  function(){
-    scrollLevel = $(document).scrollTop();
-    console.log(scrollLevel);
-  }
-);
+console.log(windowHeight);
 
 /*
 
-===============
+=======================
 
   🎨 HEARDER SIZING 🎨
 
-===============
+=======================
 
 */
 
 function headerSizing(){
   $('.hero').css('height', windowHeight);
+  if(windowWidth < 480){
+    $('.hero__logo').attr('src', 'img/logo_mobile.png');
+  } else {
+    $('.hero__logo').attr('src', 'img/logo_big.png');
+  }
 }
 
 headerSizing();
-
 
 /*
 
@@ -119,13 +108,22 @@ var nav = {
     logoLink: $('.menu__link--logo'),
     logoSrc: 'img/logo_small.png',
     burger: $('.burger'),
+    cart: $('.menu__cart'),
+    burgerBarTop: $('.burger__bar--top'),
+    burgerBarBot: $('.burger__bar--bot'),
     opened: false,
-    init: function(){
+    init: function(varScroll){
       this.logoLink.empty();
-      if(scrollLevel < windowHeight){
+      if(varScroll < windowHeight - 39){
         this.logoLink.append('Home');
+        this.cart.addClass('white');
+        this.cart.find('svg').addClass('white');
       } else {
-        this.logoLink.append('<img class="menu__logo" src="' + this.logoSrc + '" alt="Home">');
+        if(windowWidth > 640){
+          this.logoLink.append('<img class="menu__logo" src="' + this.logoSrc + '" alt="Home">');
+        }
+        this.cart.removeClass('white');
+        this.cart.find('svg').removeClass('white');
       }
     },
     opening: function(){
@@ -133,18 +131,40 @@ var nav = {
         if(!this.opened){
           this.nav.addClass('open');
           this.burger.addClass('open');
+          this.burgerBarTop.css('animation', '.6s burgerBarTopIn forwards');
+          this.burgerBarBot.css('animation', '.6s burgerBarBotIn forwards');
           this.opened = true;
         } else {
           this.nav.removeClass('open');
           this.burger.removeClass('open');
+          this.burgerBarTop.css('animation', '.3s burgerBarTopOut forwards');
+          this.burgerBarBot.css('animation', '.3s burgerBarBotOut forwards');
           this.opened = false;
         }
       }.bind(this));
     }
 };
 
-nav.init();
 nav.opening();
+nav.init(scrollLevel);
+
+/*
+
+=========================
+
+  🎨 FUNCTION SCROLL 🎨
+
+=========================
+
+*/
+
+$(document).scroll(
+  function(){
+    scrollLevel = $(document).scrollTop();
+    console.log(scrollLevel);
+    nav.init(scrollLevel);
+  }
+);
 
 /*
 
@@ -160,7 +180,7 @@ $(window).resize(
   function(){
     windowWidth = $(window).width();
     windowHeight = $(window).height();
-    nav.init();
+    nav.init(scrollLevel);
     headerSizing();
   }
 );

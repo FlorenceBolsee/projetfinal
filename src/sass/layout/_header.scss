@@ -1,9 +1,14 @@
 .hero {
   position: relative;
   padding: $gutter;
+  display: flex;
+  justify-content: center;
   .menu, .wrapper {
     position: relative;
     z-index: 10;
+  }
+  .wrapper {
+    margin: auto;
   }
 }
 .hero__bg {
@@ -15,12 +20,35 @@
   min-height: 100%;
   z-index: 1;
 }
+.hero__logo {
+  max-width: 100%;
+}
+.burger__bar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  width: 80%;
+  height: 1px;
+  background: $blue;
+  @include transition;
+}
+.burger__bar--top {
+  top: 7px;
+}
+.burger__bar--mid {
+  top: 13px;
+}
+.burger__bar--bot {
+  bottom: 7px;
+}
 .burger {
   position: fixed;
   top: $gutter;
   right: $gutter;
-  display: inline-flex;
-  flex-flow: column;
+  display: inline-block;
+  width: 31px;
+  height: 29px;
   padding: 7px 4px;
   background: #fff;
   border: 1px solid $blue;
@@ -30,15 +58,11 @@
 .burger.open {
   border: 1px solid transparent;
   background: none;
+  .burger__bar--mid {
+    width: 0;
+  }
 }
-.burger__bar {
-  width: 21px;
-  height: 1px;
-  background: $blue;
-}
-.burger__bar + .burger__bar {
-  margin-top: 5px;
-}
+
 .menu__pages {
   position: fixed;
   top: $gutter;
@@ -83,4 +107,30 @@
   0% {right: -200px; opacity: 0;}
   50% {right: -200px; opacity: 0;}
   100% {right: 0; opacity: 1;}
+}
+
+@keyframes burgerBarTopIn {
+  0%{top: 7px; transform: translateX(-50%); width: 80%;}
+  25%{top: 7px; transform: translateX(-50%); width: 80%;}
+  75%{top: 13px; transform: translateX(-50%); width: 80%;}
+  100%{top: 13px; transform: translateX(-50%) rotate(-45deg); width: 75%;}
+}
+
+@keyframes burgerBarBotIn {
+  0%{bottom: 7px; transform: translateX(-50%); width: 80%;}
+  25%{bottom: 7px; transform: translateX(-50%); width: 80%;}
+  75%{bottom: 13px; transform: translateX(-50%); width: 80%;}
+  100%{bottom: 13px; transform: translateX(-50%) rotate(45deg); width: 75%;}
+}
+
+@keyframes burgerBarTopOut {
+  0%{top: 13px; transform: translateX(-50%) rotate(-45deg); width: 75%;}
+  50%{top: 13px; transform: translateX(-50%); width: 80%;}
+  100%{top: 7px; transform: translateX(-50%); width: 80%;}
+}
+
+@keyframes burgerBarBotOut {
+  0%{bottom: 13px; transform: translateX(-50%) rotate(45deg); width: 75%;}
+  50%{bottom: 13px; transform: translateX(-50%); width: 80%;}
+  100%{bottom: 7px; transform: translateX(-50%); width: 80%;}
 }
