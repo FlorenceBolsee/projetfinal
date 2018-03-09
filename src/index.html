@@ -44,6 +44,7 @@
 			<img class="hero__logo" src="img/logo_big.png" alt="Christina Münzner">
 			<h1 class="hero__title">Soulful & Joyful Art</h1>
 		</div>
+		<div class="overlay"></div>
 		<video class="hero__bg" src="media/stock-footage-artist-brush-mix-color-oil-painting-on-palette-is-holding-in-his-hand-closeup.mp4" autoplay loop></video>
 	</header>
 
@@ -60,6 +61,7 @@
 	<main class="content">
 		<div class="wrapper">
 			<h2 class="content__title">Home</h2>
+		</div>
 
 			<!--
 
@@ -72,10 +74,14 @@
 			-->
 
 			<section class="block block--about">
-				<h3 class="block__title">About me</h3>
-				<p class="block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<img src="img/Spacehair.jpg" alt="paintings">
-				<a href="#" class="block__button">About me</a>
+				<div class="block__container">
+					<img class="block__illu" src="img/Spacehair.jpg" alt="paintings">
+					<h3 class="block__title">About me</h3>
+				</div>
+				<div class="wrapper">
+					<p class="block__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<a href="#" class="block__button">About me</a>
+				</div>
 			</section>
 
 			<!--
@@ -93,21 +99,21 @@
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<a href="#" class="slide__link"><img class="slide__img" src="img/Hanami.jpg" alt="Painting"></a>
-							<div class="slide__container">
+							<div class="slide__container wrapper">
 								<h4 class="slide__title">Last Painting Title</h4>
 								<p class="slide__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<a href="#" class="slide__link"><img class="slide__img" src="img/Hanami.jpg" alt="Painting"></a>
-							<div class="slide__container">
+							<div class="slide__container wrapper">
 								<h4 class="slide__title">Last Painting Title</h4>
 								<p class="slide__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<a href="#" class="slide__link"><img class="slide__img" src="img/Hanami.jpg" alt="Painting"></a>
-							<div class="slide__container">
+							<div class="slide__container wrapper">
 								<h4 class="slide__title">Last Painting Title</h4>
 								<p class="slide__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 							</div>
@@ -119,7 +125,9 @@
 					<div class="swiper-button-next"></div>
 					<div class="swiper-button-prev"></div>
 				</div>
-				<a href="#" class="block__button">Artworks</a>
+				<div class="wrapper">
+					<a href="#" class="block__button">Artworks</a>
+				</div>
 			</section>
 
 			<!--

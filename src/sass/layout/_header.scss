@@ -3,6 +3,7 @@
   padding: $gutter;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   .menu, .wrapper {
     position: relative;
     z-index: 10;
@@ -23,6 +24,17 @@
 .hero__logo {
   max-width: 100%;
 }
+
+/*
+
+===============
+
+  🎨 BURGER 🎨
+
+===============
+
+*/
+
 .burger__bar {
   position: absolute;
   left: 50%;
@@ -33,35 +45,50 @@
   background: $blue;
   @include transition;
 }
+
 .burger__bar--top {
   top: 7px;
 }
+
 .burger__bar--mid {
   top: 13px;
 }
+
 .burger__bar--bot {
   bottom: 7px;
 }
+
 .burger {
   position: fixed;
   top: $gutter;
   right: $gutter;
   display: inline-block;
   width: 31px;
-  height: 29px;
+  height: 28px;
   padding: 7px 4px;
   background: #fff;
-  border: 1px solid $blue;
+  border-top: $border;
+  border-right: $border;
   cursor: pointer;
   z-index: 100;
 }
+
 .burger.open {
-  border: 1px solid transparent;
   background: none;
   .burger__bar--mid {
     width: 0;
   }
 }
+
+/*
+
+============
+
+  🎨 NAV 🎨
+
+============
+
+*/
 
 .menu__pages {
   position: fixed;
@@ -69,12 +96,13 @@
   right: $gutter;
   display: inline-block;
   background: #fff;
-  border: 1px solid $blue;
-  width: 31px;
+  border: $border;
+  width: 32px;
   height: 29px;
   padding: 0;
   overflow: hidden;
   z-index: 99;
+  @include transition;
   .menu__link {
     display: block;
     opacity: 0;
@@ -87,7 +115,6 @@
   width: 180px;
   height: 340px;
   padding: 3.6rem;
-  @include transition;
   .menu__page {
     display: flex;
     justify-content: flex-end;
@@ -102,6 +129,16 @@
   left: $gutter;
   z-index: 100;
 }
+
+/*
+
+===================
+
+  🎨 ANIMATIONS 🎨
+
+===================
+
+*/
 
 @keyframes menuLinksApparition {
   0% {right: -200px; opacity: 0;}

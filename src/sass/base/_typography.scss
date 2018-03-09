@@ -33,7 +33,7 @@ a {
 
 ===============
 
-  🎨 HEADER 🎨
+  🎨 TITLES 🎨
 
 ===============
 
@@ -48,6 +48,58 @@ a {
   @extend .josefin;
 }
 
+.content__title {
+  color: $blue;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: $marginLG;
+  border-bottom: $borderLight;
+  @extend .josefin;
+}
+
+.block__title {
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: left;
+  @extend .josefin;
+}
+
+.slide__title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-top: $gutter;
+}
+
+
+
+/*
+
+==============
+
+  🎨 LINKS 🎨
+
+==============
+
+*/
+
+.block__button {
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  @extend .josefin;
+  &:hover {
+    color: #fff;
+  }
+}
 
 .menu__page {
   display: none;

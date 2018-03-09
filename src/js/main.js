@@ -2,8 +2,6 @@ var scrollLevel = 0;
 var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 
-console.log(windowHeight);
-
 /*
 
 =======================
@@ -24,6 +22,16 @@ function headerSizing(){
 }
 
 headerSizing();
+
+function squareSizing(){
+  $('.slide__img').css({
+    'width': windowWidth,
+    'height': windowWidth
+  });
+  console.log(windowWidth);
+}
+
+squareSizing();
 
 /*
 
@@ -83,7 +91,6 @@ var instagram = {
                   prevEl: '.swiper-button-prev',
                 },
               });
-              console.log(swiperInsta);
         }.bind(this))
         .fail (function() {
           $('.block__instagram').css('display', 'none');
@@ -161,7 +168,6 @@ nav.init(scrollLevel);
 $(document).scroll(
   function(){
     scrollLevel = $(document).scrollTop();
-    console.log(scrollLevel);
     nav.init(scrollLevel);
   }
 );
@@ -182,5 +188,6 @@ $(window).resize(
     windowHeight = $(window).height();
     nav.init(scrollLevel);
     headerSizing();
+    squareSizing();
   }
 );

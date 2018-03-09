@@ -7,11 +7,104 @@ html {
 
 .wrapper {
   max-width: 1200px;
+  padding: $gutter;
 }
 
+.content {
+  overflow: hidden;
+}
+
+.content__title {
+  margin-bottom: $marginMD;
+}
+
+.block {
+  .wrapper {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+}
+
+.block__illu {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.block__container {
+  width: 100%;
+  height: 300px;
+}
+
+.block__title {
+  width: 100%;
+  z-index: 10;
+}
+
+.block__text, .slide__text {
+  padding: $marginSM 0;
+  border-top: $borderLight;
+  margin-top: $marginSM;
+}
+
+.slide__text {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.block__button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: $gutter $marginMD;
+  background: $accentColor;
+  margin-bottom: $marginMD;
+}
+
+.block--about {
+  .block__title {
+    position: relative;
+    left: $gutter;
+    bottom: $marginLG;
+  }
+}
+
+/*
+
+=================
+
+  🎨 OVERLAY 🎨
+
+================
+
+*/
+
+.overlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $grey1;
+  opacity: .4;
+  z-index: 2;
+}
+
+/*
+
+================
+
+  🎨 SWIPER 🎨
+
+===============
+
+*/
+
 .swiper1 {
-      width: 100%;
-      height: 600px;
+    width: 100%;
 }
 
 .swiperInstagram {
@@ -21,8 +114,7 @@ html {
 
 .slide__img {
     display: block;
-    width: 600px;
-    height: 100%;
+    object-fit: cover;
 }
 
 .slide__img--last-news {
@@ -35,6 +127,22 @@ html {
     height: 210px;
 }
 
-.swiper-slide {
-    display: flex;
+.swiper-button-next, .swiper-button-prev {
+  display: none;
+}
+
+.swiper-pagination {
+  top: $gutter;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #fff;
+  opacity: 1;
+  background: none;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff;
 }
