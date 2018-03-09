@@ -3,7 +3,6 @@
   padding: $gutter;
   display: flex;
   justify-content: center;
-  overflow: hidden;
   .menu, .wrapper {
     position: relative;
     z-index: 10;
@@ -17,9 +16,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   z-index: 1;
+  object-fit: cover;
 }
 .hero__logo {
   max-width: 100%;
@@ -90,44 +90,45 @@
 
 */
 
-.menu__pages {
-  position: fixed;
-  top: $gutter;
-  right: $gutter;
-  display: inline-block;
-  background: #fff;
-  border: $border;
-  width: 32px;
-  height: 29px;
-  padding: 0;
-  overflow: hidden;
-  z-index: 99;
-  @include transition;
-  .menu__link {
-    display: block;
-    opacity: 0;
-    position: relative;
-    right: -200px;
+.hero {
+  .menu__pages {
+    position: fixed;
+    top: $gutter;
+    right: $gutter;
+    display: inline-block;
+    background: #fff;
+    border: $border;
+    width: 32px;
+    height: 29px;
+    padding: 0;
+    overflow: hidden;
+    z-index: 99;
+    @include transition;
+    .menu__link {
+      display: block;
+      opacity: 0;
+      position: relative;
+      right: -200px;
+    }
   }
-}
-
-.menu__pages.open {
-  width: 180px;
-  height: 340px;
-  padding: 3.6rem;
-  .menu__page {
-    display: flex;
-    justify-content: flex-end;
+  .menu__pages.open {
+    width: 180px;
+    height: 375px;
+    padding: 3.6rem;
+    .menu__page {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .menu__link {
+      animation: .6s menuLinksApparition forwards;
+    }
   }
-  .menu__link {
-    animation: .6s menuLinksApparition forwards;
+  .menu__cart {
+    position: fixed;
+    top: $gutter;
+    left: $gutter;
+    z-index: 100;
   }
-}
-.menu__cart {
-  position: fixed;
-  top: $gutter;
-  left: $gutter;
-  z-index: 100;
 }
 
 /*

@@ -24,7 +24,7 @@ function headerSizing(){
 headerSizing();
 
 function squareSizing(){
-  $('.slide__img').css({
+  $('.slide__img:not(.slide__img--instagram)').css({
     'width': windowWidth,
     'height': windowWidth
   });
@@ -78,9 +78,9 @@ var instagram = {
           var insta = this.template(data);
           $('.swiperInstagram .swiper-wrapper').append(insta);
           var swiperInsta = new Swiper('.swiperInstagram', {
-                slidesPerView: 5,
-                slidesPerGroup: 4,
-                spaceBetween: 40,
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 24,
                 loop: true,
                 pagination: {
                   el: '.swiper-pagination',

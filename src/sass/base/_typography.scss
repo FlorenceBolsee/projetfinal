@@ -17,7 +17,6 @@ body {
     font-size: 1.4rem;
     color: $grey2;
     @extend .lato;
-    line-height: 2rem;
 }
 
 a {
@@ -70,11 +69,25 @@ a {
   @extend .josefin;
 }
 
-.slide__title {
+.slide__title, .block--exhibition .block__title {
+  color: $grey2;
   font-size: 2.2rem;
   font-weight: 400;
   text-transform: uppercase;
+  text-align: center;
   padding-top: $gutter;
+}
+
+.block__name {
+  color: $blue;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.info__title {
+  color: #fff;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
 }
 
 
@@ -101,29 +114,77 @@ a {
   }
 }
 
-.menu__page {
-  display: none;
-  list-style-type: none;
-  text-align: right;
-  padding: .8rem;
-  overflow: hidden;
-}
-
-.menu__link {
-  color: $blue;
-  font-size: 1.8rem;
-  &:hover {
+.hero {
+  .menu__page {
+    display: none;
+    list-style-type: none;
+    text-align: right;
+    padding: .8rem;
+    overflow: hidden;
+  }
+  .menu__link {
     color: $blue;
+    font-size: 1.8rem;
+    &:hover {
+      color: $blue;
+    }
+  }
+  .menu__cart {
+    font-size: 3rem;
+  }
+
+  .menu__cart.white {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
   }
 }
 
-.menu__cart {
-  font-size: 3rem;
+.info {
+  a {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .menu__page {
+    list-style-type: none;
+  }
+  .info__social {
+    font-size: 3.2rem;
+  }
+  .info__social + .info__social {
+    margin-left: .7rem;
+  }
 }
 
-.menu__cart.white {
+/*
+
+==============
+
+  🎨 TEXT 🎨
+
+==============
+
+*/
+
+.block__text, .slide__text {
+  line-height: 2rem;
+}
+
+.block__quote {
+  font-style: italic;
+}
+
+.info__copyrights {
   color: #fff;
-  &:hover {
-    color: #fff;
+  font-weight: 300;
+  text-align: center;
+}
+
+.info {
+  input::placeholder {
+    color: $blue;
   }
 }
