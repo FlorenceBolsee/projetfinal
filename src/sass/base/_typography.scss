@@ -78,6 +78,20 @@ a {
   padding-top: $gutter;
 }
 
+.block--last-news, .block--last-post {
+  .slide__title {
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    letter-spacing: 2px;
+  }
+  .slide__text {
+    color: #fff;
+    border-top: 1px solid #fff;
+    font-weight: 300;
+  }
+}
+
 .block__name {
   color: $blue;
   font-weight: 700;
@@ -90,7 +104,19 @@ a {
   letter-spacing: 1px;
 }
 
+.info__title--copyright {
+  text-align: center;
+  padding-top: $marginMD;
+  margin-bottom: $marginSM;
+}
 
+.info__title--subscribe {
+  text-align: center;
+  padding-top: $marginSM;
+  @media screen and (min-width: $screenSM) {
+    padding-top: 0;
+  }
+}
 
 /*
 
@@ -104,10 +130,10 @@ a {
 
 .block__button {
   color: #fff;
-  font-size: 1.8rem;
-  line-height: 1.8rem;
+  font-size: 1.7rem;
   text-transform: uppercase;
   font-weight: 300;
+  text-align: center;
   @extend .josefin;
   &:hover {
     color: #fff;
@@ -177,14 +203,22 @@ a {
   font-style: italic;
 }
 
-.info__copyrights {
+small {
+  display: block;
   color: #fff;
   font-weight: 300;
   text-align: center;
+  line-height: 2rem;
 }
 
 .info {
   input::placeholder {
     color: $blue;
+  }
+  .inputSearch {
+    text-align: center;
+  }
+  .inputSearch::placeholder {
+    text-align: center;
   }
 }

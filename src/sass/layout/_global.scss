@@ -5,13 +5,30 @@ html {
   box-sizing: inherit;
 }
 
+.content {
+  background: #fff;
+}
+
+/*
+
+================
+
+  🎨 WRAPPER 🎨
+
+===============
+
+*/
+
 .wrapper {
   max-width: 1200px;
   padding: $gutter;
+  margin: 0 auto;
 }
-
-.content__title {
-  margin-bottom: $marginMD;
+.wrapper--instagram {
+  padding: 0 $gutter;
+}
+.slide__container.wrapper {
+  padding: $gutter $gutter 0;
 }
 
 .block {
@@ -25,6 +42,20 @@ html {
   }
 }
 
+.block--last-painting, .block--last-product, .block--last-post, .block__instagram {
+  padding-bottom: $gutter;
+}
+
+/*
+
+================
+
+  🎨 IMAGES 🎨
+
+===============
+
+*/
+
 .block__illu {
   display: block;
   width: 100%;
@@ -34,8 +65,38 @@ html {
 
 .block__container {
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 300px;
+}
+
+@supports not (object-fit: cover){
+  .block__container {
+    .block__illu {
+      position: absolute;
+      top: -9999px;
+      right: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      margin: auto;
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
+}
+
+/*
+
+================
+
+  🎨 TEXTS 🎨
+
+===============
+
+*/
+
+.content__title {
+  margin-bottom: $marginMD;
 }
 
 .block__title {
@@ -48,11 +109,13 @@ html {
   border-top: $borderLight;
   margin-top: $marginSM;
   margin-bottom: 0;
+  flex-basis: 100%;
 }
 
 .block__text--2 {
   border-top: 0;
   margin-top: 0;
+  width: 100%;
 }
 
 .slide__text {
@@ -66,7 +129,7 @@ html {
   align-items: center;
   padding: $gutter $marginMD;
   background: $accentColor;
-  margin: $marginMD 0;
+  margin: $marginMD auto;
 }
 
 .block--about, .block--commissions {
@@ -78,30 +141,15 @@ html {
   }
 }
 
-.block--last-news, .block--last-post {
-  .slide__title {
-    color: #fff;
-    text-align: left;
-    width: 100%;
-  }
-  .slide__text {
-    color: #fff;
-    border-top: 1px solid #fff;
-    font-weight: 300;
-  }
-  .slide__img, .overlay {
-    position: absolute;
-  }
-  .overlay {
-    z-index: 2;
-  }
-  .slide__container {
-    position: relative;
-    z-index: 10;
-    padding: $marginLG $gutter;
-  }
+/*
 
-}
+=====================
+
+  🎨 TESTIMONIALS 🎨
+
+=====================
+
+*/
 
 .block__testimonials {
   .block__illu {
@@ -135,6 +183,21 @@ html {
 
 */
 
+.block--last-news, .block--last-post {
+  .slide__img, .overlay {
+    position: absolute;
+  }
+  .overlay {
+    z-index: 2;
+  }
+  .slide__container {
+    position: relative;
+    z-index: 10;
+    padding: $marginLG $gutter;
+  }
+
+}
+
 .overlay {
   display: block;
   width: 100%;
@@ -145,6 +208,14 @@ html {
   background: $grey1;
   opacity: .4;
   z-index: 2;
+}
+
+.overlay--post {
+  opacity: .7;
+}
+
+.overlay--art {
+  opacity: .2;
 }
 
 /*
@@ -163,6 +234,7 @@ html {
 
 .swiperInstagram {
     width: 100%;
+    padding-top: $marginMD;
 }
 
 .slide__img {

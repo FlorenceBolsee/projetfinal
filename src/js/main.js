@@ -1,20 +1,31 @@
 var scrollLevel = 0;
 var windowWidth = $(window).width();
 var windowHeight = $(window).height();
+var footerHeight = $('.info').height();
+var isMobile = is_mobile();
+
+function is_mobile() {
+  if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /*
 
-=======================
+==================
 
-  🎨 HEARDER SIZING 🎨
+  🎨 FUNCTIONS 🎨
 
-=======================
+==================
 
 */
 
 function headerSizing(){
   $('.hero').css('height', windowHeight);
   if(windowWidth < 480){
+    $('.hero__bg').css('display', 'none');
     $('.hero__logo').attr('src', 'img/logo_mobile.png');
   } else {
     $('.hero__logo').attr('src', 'img/logo_big.png');
@@ -28,7 +39,6 @@ function squareSizing(){
     'width': windowWidth,
     'height': windowWidth
   });
-  console.log(windowWidth);
 }
 
 squareSizing();
@@ -54,6 +64,23 @@ var swiper = new Swiper('.swiper1', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+});
+
+/*
+
+==================
+
+  🎨 SCROLLIFY 🎨
+
+==================
+
+*/
+
+$(function() {
+  $.scrollify({
+    section : ".block",
+    setHeights : false,
+  });
 });
 
 /*
@@ -110,6 +137,7 @@ instagram.request();
 
 */
 
+
 var nav = {
     nav: $('.menu__pages'),
     logoLink: $('.menu__link--logo'),
@@ -120,13 +148,15 @@ var nav = {
     burgerBarBot: $('.burger__bar--bot'),
     opened: false,
     init: function(varScroll){
-      this.logoLink.empty();
-      if(varScroll < windowHeight - 39){
+      var scrollCurrent = $.scrollify.current();
+      if(varScroll < windowHeight - 39 || (scrollCurrent.hasClass('info') && footerHeight >= windowHeight)){
+        this.logoLink.empty();
         this.logoLink.append('Home');
         this.cart.addClass('white');
         this.cart.find('svg').addClass('white');
       } else {
-        if(windowWidth > 640){
+        if(windowWidth > 640 && !isMobile){
+          this.logoLink.empty();
           this.logoLink.append('<img class="menu__logo" src="' + this.logoSrc + '" alt="Home">');
         }
         this.cart.removeClass('white');
@@ -165,9 +195,9 @@ nav.init(scrollLevel);
 
 */
 
-$(document).scroll(
+$(window).scroll(
   function(){
-    scrollLevel = $(document).scrollTop();
+    scrollLevel = $(this).scrollTop();
     nav.init(scrollLevel);
   }
 );
@@ -186,6 +216,7 @@ $(window).resize(
   function(){
     windowWidth = $(window).width();
     windowHeight = $(window).height();
+    footerHeight = $('.info').height();
     nav.init(scrollLevel);
     headerSizing();
     squareSizing();

@@ -3,12 +3,14 @@
   padding: $gutter;
   display: flex;
   justify-content: center;
+  background: url('../img/headerBG.jpg');
+  background-size: cover;
   .menu, .wrapper {
     position: relative;
-    z-index: 10;
   }
   .wrapper {
     margin: auto;
+    z-index: 10;
   }
 }
 .hero__bg {
@@ -23,6 +25,23 @@
 }
 .hero__logo {
   max-width: 100%;
+}
+
+@supports not (object-fit: cover){
+  .hero {
+    overflow: hidden;
+    width: 100%;
+    .hero_bg {
+      position: absolute;
+      top: -9999px;
+      right: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      margin: auto;
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
 }
 
 /*
@@ -70,7 +89,7 @@
   border-top: $border;
   border-right: $border;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .burger.open {
@@ -102,7 +121,7 @@
     height: 29px;
     padding: 0;
     overflow: hidden;
-    z-index: 99;
+    z-index: 999;
     @include transition;
     .menu__link {
       display: block;
@@ -127,7 +146,7 @@
     position: fixed;
     top: $gutter;
     left: $gutter;
-    z-index: 100;
+    z-index: 1000;
   }
 }
 

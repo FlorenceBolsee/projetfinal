@@ -6,21 +6,53 @@
   .wrapper {
     display: flex;
     flex-flow: wrap;
+    padding: 80px $gutter 150px;
+  }
+  .info__column {
+    padding-top: 5px;
+    flex-grow: 1;
   }
   .info__column--elsewhere {
-    flex-grow: 1;
-    margin-left: $marginLG;
+    margin-left: 10%;
+  }
+  .info__column--subscribe, .info__column--elsewhere {
+    @media screen and (min-width: $screenSM) {
+      margin-left: 5%;
+    }
+  }
+  .info__column--subscribe {
+    @media screen and (min-width: $screenSM) {
+      flex-basis: 50%;
+    }
   }
   input {
     width: 100%;
     height: 3.2rem;
     padding-left: 1rem;
+    border: 1px solid transparent;
+    margin-top: $gutter;
+  }
+  .inputSearch {
+    margin-top: 0;
+  }
+  .inputSubmit {
+    width: auto;
+    background: $blue;
+    padding: 0 $marginSM;
+    margin-top: $marginSM;
+    border: 1px solid #fff;
+    color: #fff;
+    cursor: pointer;
+  }
+  input:focus {
+    border: 1px solid $grey2;
   }
   .menu__page {
     padding: 5px;
   }
   #search {
     position: relative;
+    margin-top: $gutter;
   }
   .fa-search {
     position: absolute;
