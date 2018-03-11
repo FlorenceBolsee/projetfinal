@@ -31,19 +31,18 @@ html {
   padding: $gutter $gutter 0;
 }
 
-.block {
+.block, .block .wrapper {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-  .wrapper {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: center;
-  }
 }
 
-.block--last-painting, .block--last-product, .block--last-post, .block__instagram {
+.block--last-painting, .block--last-product, .block--last-post, .block--instagram {
   padding-bottom: $gutter;
+}
+
+.block--instagram {
+  padding-top: $marginMD;
 }
 
 /*
@@ -56,23 +55,46 @@ html {
 
 */
 
-.block__illu {
-  display: block;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
+.block__container, .slide__link:not(.slide__link--instagram) {
+  .block__illu {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  .slide__img {
+      display: block;
+      object-fit: cover;
+      width: 600px;
+      height: 600px;
+  }
 }
 
 .block__container {
-  position: relative;
-  overflow: hidden;
   width: 100%;
   height: 300px;
 }
 
+.slide__link {
+  display: block;
+}
+
+.block__container, .slide__link {
+    position: relative;
+}
+
+.block--last-painting, .block--last-product {
+  .slide__link {
+    @media screen and (min-width: 600px) {
+      max-width: 600px;
+    }
+  }
+}
+
 @supports not (object-fit: cover){
-  .block__container {
-    .block__illu {
+  .block__container, .slide__link:not(.slide__link--instagram) {
+    overflow: hidden;
+    .block__illu, .slide__img {
       position: absolute;
       top: -9999px;
       right: -9999px;
@@ -228,27 +250,12 @@ html {
 
 */
 
-.swiper1 {
-    width: 100%;
-}
-
-.swiperInstagram {
-    width: 100%;
-    padding-top: $marginMD;
-}
-
-.slide__img {
-    display: block;
-    object-fit: cover;
-}
-
-.slide__img--last-news {
+.swiper1, .swiperInstagram, .slide__img--last-news, .slide__img--instagram  {
     width: 100%;
 }
 
 .slide__img--instagram {
     display: block;
-    width: 100%;
 }
 
 .swiper-button-next, .swiper-button-prev {
@@ -269,11 +276,6 @@ html {
 
 .swiper-pagination-bullet-active {
   background: #fff;
-}
-
-.slide__link {
-  display: block;
-  position: relative;
 }
 
 .swiperInstagram {

@@ -11,6 +11,9 @@
 
 html {
     font-size: 10px;
+    @media screen and (min-width: $screenSM) {
+      font-size: 14px;
+    }
 }
 
 body {
@@ -142,11 +145,13 @@ a {
 
 .hero {
   .menu__page {
-    display: none;
     list-style-type: none;
     text-align: right;
-    padding: .8rem;
     overflow: hidden;
+    @media screen and (min-width: $screenSM) {
+      text-align: left;
+      overflow: visible;
+    }
   }
   .menu__link {
     color: $blue;
@@ -154,9 +159,18 @@ a {
     &:hover {
       color: $blue;
     }
+    @media screen and (min-width: $screenSM) {
+      color: #fff;
+      font-size: 1rem;
+      font-family: 'Josefin Sans', sans-serif;
+      text-transform: uppercase;
+    }
   }
   .menu__cart {
     font-size: 3rem;
+    @media screen and (min-width: $screenSM) {
+      font-size: 1.3rem;
+    }
   }
 
   .menu__cart.white {

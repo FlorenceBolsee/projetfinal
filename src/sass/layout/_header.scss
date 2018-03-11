@@ -8,6 +8,11 @@
   .menu, .wrapper {
     position: relative;
   }
+  .menu {
+    @media screen and (min-width: $screenSM) {
+      position: static;
+    }
+  }
   .wrapper {
     margin: auto;
     z-index: 10;
@@ -25,6 +30,12 @@
 }
 .hero__logo {
   max-width: 100%;
+  @media screen and (min-width: $screenLG) {
+    max-width: 1200px;
+  }
+}
+.hero__title {
+  flex-basis: 100%;
 }
 
 @supports not (object-fit: cover){
@@ -90,6 +101,9 @@
   border-right: $border;
   cursor: pointer;
   z-index: 1000;
+  @media screen and (min-width: $screenSM) {
+    display: none;
+  }
 }
 
 .burger.open {
@@ -110,6 +124,7 @@
 */
 
 .hero {
+  position: relative;
   .menu__pages {
     position: fixed;
     top: $gutter;
@@ -123,11 +138,43 @@
     overflow: hidden;
     z-index: 999;
     @include transition;
+    @media screen and (min-width: $screenSM) {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      width: auto;
+      height: auto;
+      border: 0;
+      background: none;
+    }
     .menu__link {
       display: block;
       opacity: 0;
       position: relative;
       right: -200px;
+      @media screen and (min-width: $screenSM) {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }
+  .menu__page {
+    display: none;
+    padding: .8rem;
+    @media screen and (min-width: $screenSM) {
+      display: block;
+      padding: 0 .8rem;
+    }
+  }
+  .menu__cart {
+    position: fixed;
+    top: $gutter;
+    left: $gutter;
+    z-index: 1000;
+    @media screen and (min-width: $screenSM) {
+      position: absolute;
+      top: .9rem;
+      left: .9rem;
     }
   }
   .menu__pages.open {
@@ -142,11 +189,32 @@
       animation: .6s menuLinksApparition forwards;
     }
   }
+}
+
+.hero.fixed {
   .menu__cart {
     position: fixed;
+    color: $blue;
     top: $gutter;
     left: $gutter;
-    z-index: 1000;
+  }
+  .menu__pages {
+    position: fixed;
+    background: #fff;
+    padding: $gutter;
+    top: 0;
+    right: 0;
+    width: 100%;
+    transition-property: none;
+    .menu__link {
+      color: $blue;
+    }
+    .menu__logo {
+      height: 21px;
+      margin-left: $marginLG;
+      position: relative;
+      bottom: 4px;
+    }
   }
 }
 
