@@ -5,6 +5,7 @@ var footerHeight = $('.info').height();
 var isMobile = is_mobile();
 var $squares = $('.block--last-product .slide__img, .block--last-painting .slide__img, .block--last-product .slide__link, .block--last-painting .slide__link');
 var offset;
+var scrollCurrent;
 
 function is_mobile() {
   if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
@@ -48,6 +49,18 @@ function squareSizing(){
 
 squareSizing();
 
+function setOffset(section) {
+  if(windowWidth > 720 && !isMobile && !section.hasClass('hero')){
+    offset = -72;
+  } else {
+    offset = 0;
+  }
+}
+
+setOffset($('.hero'));
+
+
+
 /*
 
 ===============
@@ -81,17 +94,11 @@ var swiper = new Swiper('.swiper1', {
 
 */
 
-$(function() {
-  if(windowWidth > 720 && !isMobile){
-    offset = -72;
-  } else {
-    offset = 0;
-  }
-  $.scrollify({
-    section : ".block",
-    setHeights : false,
-    offset : offset,
-  });
+$.scrollify({
+  section : ".block",
+  setHeights : false,
+  offset : offset,
+  standardScrollElements : ".info .block__testimonials",
 });
 
 /*
@@ -105,7 +112,7 @@ $(function() {
 */
 
 var instagram = {
-  token: "1975026352.c6e2de8.3ef7709ab1e847beb0b6805c7c985fad",
+  token: "1975026352.1677ed0.8ac004345c684393be5e69da15385e86",
   count: '&count=20',
   template: Handlebars.compile($("#insta-template").html()),
   clientX: undefined,
@@ -160,7 +167,9 @@ var nav = {
     burgerBarBot: $('.burger__bar--bot'),
     opened: false,
     init: function(varScroll){
-      var scrollCurrent = $.scrollify.current();
+      scrollCurrent = $.scrollify.current();
+      setOffset(scrollCurrent);
+      console.log(offset);
       if((windowWidth < 720 && isMobile) && (varScroll < windowHeight - 39 || scrollCurrent.hasClass('block--commissions') || (scrollCurrent.hasClass('info') && footerHeight >= windowHeight - 28))){
         this.cart.addClass('white');
         this.cart.find('svg').addClass('white');
@@ -200,6 +209,13 @@ var nav = {
 nav.opening();
 nav.init(scrollLevel);
 
+$.scrollify({
+  section : ".block",
+  setHeights : false,
+  offset : offset,
+  standardScrollElements : ".info, .block__testimonials",
+});
+
 /*
 
 =========================
@@ -235,5 +251,6 @@ $(window).resize(
     nav.init(scrollLevel);
     headerSizing();
     squareSizing();
+    setOffset(scrollCurrent);
   }
 );
