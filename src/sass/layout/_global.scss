@@ -97,7 +97,7 @@ html {
 }
 
 @supports not (object-fit: cover) {
-    .block__container, .slide__link:not(.slide__link--instagram) {
+    .block__container, .slide__link {
       overflow: hidden;
       .block__illu, .slide__img {
         position: absolute;
@@ -113,7 +113,7 @@ html {
 }
 
 @supports (object-fit: cover){
-    .block__container, .slide__link:not(.slide__link--instagram) {
+    .block__container, .slide__link {
       .block__illu {
         display: block;
         width: 100%;
@@ -123,8 +123,7 @@ html {
       .slide__img {
           display: block;
           object-fit: cover;
-          width: 600px;
-          height: 600px;
+          width: 100%;
       }
     }
     .block__testimonials {
@@ -282,6 +281,10 @@ html {
     width: 100%;
 }
 
+.slide__img--last-news {
+    transform: translateY(-25%);
+}
+
 .slide__img--instagram {
     display: block;
 }
@@ -369,6 +372,11 @@ html {
             opacity: .8;
         }
     }
+    .block--last-painting, .block--last-product {
+        .slide__link {
+            margin: 0 auto;
+        }
+    }
 }
 
 /*
@@ -381,18 +389,16 @@ html {
 
 */
 
-@media screen and (min-width: $screenLG) {
+@media screen and (min-width: $screenMD) {
     .block--about, .block--commissions {
         position: relative;
         .wrapper--about {
             justify-content: center;
             align-items: flex-start;
-            padding-bottom: $marginXL;
         }
         .block__container {
             position: static;
             flex-basis: 40%;
-            height: 600px;
         }
         .block__illu, .overlay {
             width: 100%;
@@ -400,23 +406,20 @@ html {
             position: absolute;
             left: 0;
             width: 40%;
-            height: 600px;
         }
         .wrapper:not(.wrapper--about) {
             flex-basis: 60%;
             margin: 0;
-            padding-left: $marginLG;
             text-align: right;
             justify-content: flex-end;
         }
         .block__title {
-            left: 0;
             top: $gutter;
+            left: 0;
             bottom: inherit;
             text-align: right;
             width: 40%;
-            height: 600px;
-            padding: $marginLG !important;
+            height: 100%;
         }
     }
     .block--commissions {
@@ -434,17 +437,16 @@ html {
         }
     }
     .block--last-painting, .block--last-product {
-        padding-bottom: $marginLG !important;
+        padding: $gutter;
         @supports (max-width: 1200px) {
           max-width: 1200px;
         }
-        width: 1200px;
-        padding: $gutter 0;
+        width: 100%;
         @supports (margin: 0 auto) {
             margin: 0 auto;
         }
         .slide__link {
-            flex-basis: 600px;
+            flex-basis: 50%;
         }
         .swiper-slide {
             display: flex;
@@ -455,34 +457,30 @@ html {
         }
         .wrapper {
             box-sizing: border-box;
-            width: 600px;
+            width: 50%;
             max-width: inherit;
             margin: 0;
             padding: 0;
-            padding-left: $marginLG;
+            padding-left: 5%;
             text-align: left;
             justify-content: flex-start;
         }
         .swiper-pagination {
             width: auto !important;
-            left: 300px;
+            left: 25%;
             transform: translateX(-50%);
-        }
-        .slide__title {
-            padding-top: $marginXL;
         }
         .swiper-button-next, .swiper-button-prev {
             display: block;
-            top: auto;
-            bottom: $marginXL;
+            top: 75%;
         }
         .swiper-button-next {
             background: url('../img/nextGrey.png') no-repeat;
-            right: 460px;
+            right: 38%;
         }
         .swiper-button-prev {
             background: url('../img/prevGrey.png') no-repeat;
-            left: 663px;
+            left: 55%;
         }
     }
     .block--last-product {
@@ -491,29 +489,168 @@ html {
         }
         .wrapper {
             padding-left: 0;
-            padding-right: $marginLG;
+            padding-right: 5%;
             text-align: right;
             justify-content: flex-end;
         }
         .swiper-pagination {
             left: auto;
-            right: 300px;
+            right: 25%;
             transform: translateX(50%);
         }
         .swiper-button-next {
-            right: 663px;
+            right: 55%;
         }
         .swiper-button-prev {
-            left: 460px;
+            left: 38%;
         }
     }
-    .block--last-news {
+    .block--last-news, .block--last-post {
+        .slide__title {
+            padding-top: 150px;
+            text-align: right;
+        }
+        .wrapper {
+            text-align: right;
+            padding-bottom: $marginXL;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            display: block;
+            top: calc(150px + $marginLG);
+            transform: translateY(-50%);
+        }
+        .swiper-button-next {
+            background: url('../img/nextWhite.png') no-repeat;
+            right: auto;
+            left: $gutter;
+            margin-left: $marginLG;
+        }
+        .swiper-button-prev {
+            background: url('../img/prevWhite.png') no-repeat;
+            left: $gutter;
+        }
+    }
+    .block--last-post {
+        .slide__title {
+            text-align: left;
+        }
+        .wrapper {
+            text-align: left;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            right: $gutter;
+            left: auto;
+        }
+        .swiper-button-next {
+            margin-left: 0;
+        }
+        .swiper-button-prev {
+            margin-right: $marginLG;
+        }
+    }
+    .block--exhibition {
+        text-align: center;
+        padding: $marginMD 0;
+    }
+}
+
+
+@media screen and (min-width: $screenLG) {
+    .block--about, .block--commissions {
+        .wrapper--about {
+            padding-bottom: $marginXL;
+        }
+        .wrapper:not(.wrapper--about) {
+            padding-left: $marginLG;
+        }
+        .block__title {
+            padding: $marginLG !important;
+        }
+    }
+    .block--last-painting, .block--last-product {
+        padding: $marginLG 0 !important;
+        .slide__title {
+            padding-top: $marginXL;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            top: auto;
+            bottom: $marginXL;
+        }
+    }
+    .block--last-news, .block--last-post {
         .swiper-pagination {
             top: $marginLG;
         }
         .wrapper {
             padding-bottom: $marginXL;
-            text-align: right;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            transform: translate(-600px, -50%);
+        }
+        .swiper-button-next {
+            left: 50%;
+            margin-left: $marginLG;
+        }
+        .swiper-button-prev {
+            left: 50%;
+        }
+    }
+    .block--last-post {
+        .swiper-button-next, .swiper-button-prev {
+            transform: translate(600px, -50%);
+            right: 50%;
+            left: auto;
+        }
+    }
+    .block--exhibition {
+        padding: $marginXL 0;
+    }
+    .block--instagram {
+        padding: $marginXL 0;
+        @supports (max-width: 1200px) {
+          max-width: 1200px;
+        }
+        width: 100%;
+        @supports (margin: 0 auto) {
+            margin: 0 auto;
+        }
+        .swiper-container {
+            padding: 0 $marginLG $marginXL;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            top: 98px;
+            height: 105%;
+            width: 5.5%;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .swiper-button-next {
+            right: 0;
+            background:
+                url('../img/nextGrey.png') no-repeat center center,
+                #fff;
+        }
+        .swiper-button-prev {
+            left: 0;
+            background:
+                url('../img/prevGrey.png') no-repeat center center,
+                #fff;
+        }
+        .swiper-pagination {
+            display: block;
+            top: 240px;
+        }
+        .swiper-pagination-bullet {
+          border: 1px solid $grey2;
+        }
+        .swiper-pagination-bullet-active {
+          background: $grey2;
+        }
+        .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+            &:hover {
+                background: rgba($grey2, .5);
+            }
         }
     }
 }

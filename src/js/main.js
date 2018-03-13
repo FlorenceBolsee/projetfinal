@@ -3,7 +3,8 @@ var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 var footerHeight = $('.info').height();
 var isMobile = is_mobile();
-var $squares = $('.block--last-product .slide__img, .block--last-painting .slide__img, .block--last-product .slide__link, .block--last-painting .slide__link');
+var $squares = [$('.block--last-product .slide__img'), $('.block--last-painting .slide__img'), $('.block--last-product .slide__link'), $('.block--last-painting .slide__link')];
+var instaCount;
 
 console.log(windowWidth);
 
@@ -39,13 +40,30 @@ function headerSizing(){
 headerSizing();
 
 function squareSizing(){
-    var squareHeight = $squares.width();
-    $squares.css({
-      'height': squareHeight
+    $squares.forEach(function(square){
+        var squareHeight = square.width();
+        square.css({
+          'height': squareHeight
+        });
+        square.closest('.block__container').css({
+            'height': squareHeight
+        });
     });
 }
 
 squareSizing();
+
+function instaDisplay(){
+    if(windowWidth < 700){
+        instaCount = 3;
+    } else if(windowWidth < 1000) {
+        instaCount = 4;
+    } else {
+        instaCount = 5;
+    }
+}
+
+instaDisplay();
 
 /*
 
@@ -92,8 +110,8 @@ var instagram = {
           var insta = this.template(data);
           $('.swiperInstagram .swiper-wrapper').append(insta);
           var swiperInsta = new Swiper('.swiperInstagram', {
-                slidesPerView: 3,
-                slidesPerGroup: 3,
+                slidesPerView: instaCount,
+                slidesPerGroup: instaCount,
                 spaceBetween: 24,
                 loop: true,
                 pagination: {
@@ -105,6 +123,8 @@ var instagram = {
                   prevEl: '.swiper-button-prev',
                 },
               });
+              $squares.push($('.slide__link--instagram'), $('.slide__img--instagram'), $('.block--instagram .overlay--art'));
+              squareSizing();
         }.bind(this))
         .fail (function() {
           $('.block__instagram').css('display', 'none');
@@ -214,5 +234,7 @@ $(window).resize(
     nav.init(scrollLevel);
     headerSizing();
     squareSizing();
+    instaDisplay();
+    instagram.request();
   }
 );
