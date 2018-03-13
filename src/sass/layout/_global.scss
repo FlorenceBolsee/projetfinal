@@ -32,9 +32,6 @@ html {
     @media screen and (min-width: $screenLG) {
         width: 1200px;
         padding: $gutter 0;
-        @supports (margin: 0 auto) {
-            margin: 0 auto;
-        }
     }
 }
 .wrapper--instagram {
@@ -399,6 +396,7 @@ html {
         .block__container {
             position: static;
             flex-basis: 40%;
+            box-sizing: border-box;
         }
         .block__illu, .overlay {
             width: 100%;
@@ -412,6 +410,7 @@ html {
             margin: 0;
             text-align: right;
             justify-content: flex-end;
+            box-sizing: border-box;
         }
         .block__title {
             top: $gutter;
@@ -442,9 +441,7 @@ html {
           max-width: 1200px;
         }
         width: 100%;
-        @supports (margin: 0 auto) {
-            margin: 0 auto;
-        }
+        margin: 0 auto;
         .slide__link {
             flex-basis: 50%;
         }
@@ -585,9 +582,15 @@ html {
 
 
 @media screen and (min-width: $screenLG) {
+    .wrapper--title {
+        margin: 0 auto;
+    }
     .block--about, .block--commissions {
+        width: 100%;
         .wrapper--about {
             padding-bottom: $marginXL;
+            margin: 0 auto;
+            width: 1200px;
         }
         .wrapper:not(.wrapper--about) {
             padding-left: $marginLG;
@@ -612,6 +615,7 @@ html {
         }
         .wrapper {
             padding-bottom: $marginXL;
+            margin: 0 auto;
         }
         .swiper-button-next, .swiper-button-prev {
             transform: translate(-600px, -50%);
@@ -631,6 +635,9 @@ html {
             left: auto;
         }
     }
+    .wrapper--exhibition {
+        margin: 0 auto;
+    }
     .block--exhibition {
         padding: $marginXL 0;
     }
@@ -640,9 +647,7 @@ html {
           max-width: 1200px;
         }
         width: 100%;
-        @supports (margin: 0 auto) {
-            margin: 0 auto;
-        }
+        margin: 0 auto;
         .swiper-container {
             padding: 0 $marginLG $marginXL;
         }

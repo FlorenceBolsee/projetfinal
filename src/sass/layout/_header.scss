@@ -234,7 +234,7 @@ a.menu__cart.white {
         top: 0;
         right: 0;
         transition-property: none;
-        transform: translateZ(0);
+        background-attachment: fixed;
         @media screen and (min-width: $screenLG) {
             height: 85px;
         }

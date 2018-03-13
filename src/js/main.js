@@ -246,3 +246,25 @@ $(window).resize(
     instagram.request();
   }
 );
+
+/*
+
+=================
+
+  🎨 FIX IE 🎨
+
+================
+
+*/
+
+if(navigator.userAgent.match(/Trident\/7\./) || window.navigator.userAgent.indexOf("Edge") > -1) { // if IE
+        $('body').on("mousewheel", function () {
+            // remove default behavior
+            event.preventDefault();
+
+            //scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+}
