@@ -4,9 +4,8 @@ var windowHeight = $(window).height();
 var footerHeight = $('.info').height();
 var isMobile = is_mobile();
 var $squares = [$('.block--last-product .slide__img'), $('.block--last-painting .slide__img'), $('.block--last-product .slide__link'), $('.block--last-painting .slide__link')];
-var instaCount;
-
-console.log(windowWidth);
+var $body = $(document.body);
+var headerHeight = $('.hero').height();
 
 function is_mobile() {
   if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
@@ -27,7 +26,10 @@ function is_mobile() {
 */
 
 function headerSizing(){
-  $('.hero').css('height', windowHeight);
+    if($body.hasClass('homepage')){
+      $('.hero').css('height', windowHeight);
+      headerHeight = windowHeight - 72;
+  }
   if(windowWidth < 480 || isMobile){
     $('.hero__bg').css('display', 'none');
     $('.hero__logo').attr('src', 'img/logo_mobile.png');
@@ -53,18 +55,6 @@ function squareSizing(){
 
 squareSizing();
 
-function instaDisplay(){
-    if(windowWidth < 700){
-        instaCount = 3;
-    } else if(windowWidth < 1000) {
-        instaCount = 4;
-    } else {
-        instaCount = 5;
-    }
-}
-
-instaDisplay();
-
 /*
 
 ===============
@@ -88,52 +78,6 @@ var swiper = new Swiper('.swiper1', {
       },
 });
 
-/*
-
-=========================
-
-  🎨 INCLUDE INSTAGRAM 🎨
-
-=========================
-
-*/
-
-var instagram = {
-  token: "3187623924.1677ed0.3bd611908d95486f8acd4b51e806f853",
-  count: '&count=20',
-  template: Handlebars.compile($("#insta-template").html()),
-  clientX: undefined,
-  overlayOn: false,
-  request: function(){
-    $.getJSON('https://api.instagram.com/v1/users/self/media/recent/?access_token=' + this.token + this.count)
-        .done( function(data) {
-          var insta = this.template(data);
-          $('.swiperInstagram .swiper-wrapper').empty();
-          $('.swiperInstagram .swiper-wrapper').append(insta);
-          var swiperInsta = new Swiper('.swiperInstagram', {
-                slidesPerView: instaCount,
-                slidesPerGroup: instaCount,
-                spaceBetween: 24,
-                loop: true,
-                pagination: {
-                  el: '.swiper-pagination',
-                  clickable: true,
-                },
-                navigation: {
-                  nextEl: '.swiper-button-next',
-                  prevEl: '.swiper-button-prev',
-                },
-              });
-              $squares.push($('.slide__link--instagram'), $('.slide__img--instagram'), $('.block--instagram .overlay--art'));
-              squareSizing();
-        }.bind(this))
-        .fail (function() {
-          $('.block__instagram').css('display', 'none');
-    });
-  }
-};
-
-instagram.request();
 
 /*
 
@@ -158,14 +102,14 @@ var nav = {
     opened: false,
     fixed: false,
     init: function(varScroll){
-      if(windowWidth < 700 && (varScroll < windowHeight - 39)){
+      if(windowWidth < 700 && (varScroll < headerHeight)){
         this.cart.addClass('white');
         this.cart.find('svg').addClass('white');
       } else {
         this.cart.removeClass('white');
         this.cart.find('svg').removeClass('white');
       }
-      if((windowWidth >= 700 && !isMobile) && varScroll >= windowHeight - 72){
+      if((windowWidth >= 700 && !isMobile) && varScroll >= headerHeight){
         if(this.fixed == false){
             this.hero.addClass('fixed');
             this.fixed = true;
@@ -176,7 +120,7 @@ var nav = {
             this.fixed = false;
           }
       }
-      if((windowWidth >= 1080 && !isMobile) && varScroll >= windowHeight - 72){
+      if((windowWidth >= 1080 && !isMobile) && varScroll >= headerHeight){
           this.logoLink.empty();
           this.logoLink.append('<img class="menu__logo" src="' + this.logoSrc + '" alt="Home">');
           this.logoLink.addClass('image');
@@ -239,11 +183,10 @@ $(window).resize(
     windowWidth = $(window).width();
     windowHeight = $(window).height();
     footerHeight = $('.info').height();
+    headerHeight = $('.hero').height();
     nav.init(scrollLevel);
     headerSizing();
     squareSizing();
-    instaDisplay();
-    instagram.request();
   }
 );
 

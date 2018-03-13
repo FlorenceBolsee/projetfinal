@@ -599,6 +599,11 @@ html {
             padding: $marginLG !important;
         }
     }
+    .block--commissions {
+        .wrapper:not(.wrapper--about) {
+            padding-left: 0;
+        }
+    }
     .block--last-painting, .block--last-product {
         padding: $marginLG 0 !important;
         .slide__title {
@@ -686,5 +691,41 @@ html {
                 background: rgba($grey2, .5);
             }
         }
+    }
+}
+
+/*
+
+=========================
+
+  🎨 SPACER SECTIONS 🎨
+
+========================
+
+*/
+
+.spacer {
+    height: $gutter;
+    @media screen and (min-width: $screenSM) {
+        height: $marginSM;
+    }
+    @media screen and (min-width: $screenMD) {
+        height: $marginMD;
+    }
+    @media screen and (min-width: $screenLG) {
+        height: $marginLG;
+    }
+}
+
+.spacer--big {
+    height: calc($gutter * 2);
+    @media screen and (min-width: $screenSM) {
+        height: calc($marginSM * 2);
+    }
+    @media screen and (min-width: $screenMD) {
+        height: calc($marginMD * 2);
+    }
+    @media screen and (min-width: $screenLG) {
+        height: calc($marginLG * 2);
     }
 }

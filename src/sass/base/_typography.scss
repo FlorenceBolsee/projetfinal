@@ -185,6 +185,8 @@ a {
   }
   .menu__cart {
     font-size: 2rem;
+    display: flex;
+    justify-content: center;
     @media screen and (min-width: $screenSM) {
         font-size: 1.3rem;
     }

@@ -1,0 +1,18 @@
+.block--about1, .block--about2 {
+    @media screen and (min-width: $screenMD) {
+        .wrapper:not(.wrapper--about){
+            padding-top: 0;
+            flex-basis: 70%;
+            padding-left: 0;
+        }
+        .block__text:not(.block__text--2) {
+            margin-top: 0;
+        }
+        .block__container {
+            flex-basis: 30%;
+        }
+        .block__illu, .overlay {
+            width: 30%;
+        }
+    }
+}
