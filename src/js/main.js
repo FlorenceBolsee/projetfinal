@@ -4,8 +4,8 @@ var windowHeight = $(window).height();
 var footerHeight = $('.info').height();
 var isMobile = is_mobile();
 var $squares = $('.block--last-product .slide__img, .block--last-painting .slide__img, .block--last-product .slide__link, .block--last-painting .slide__link');
-var offset;
-var scrollCurrent;
+
+console.log(windowWidth);
 
 function is_mobile() {
   if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
@@ -39,27 +39,13 @@ function headerSizing(){
 headerSizing();
 
 function squareSizing(){
-  if(windowWidth < 600){
+    var squareHeight = $squares.width();
     $squares.css({
-      'width': windowWidth,
-      'height': windowWidth
+      'height': squareHeight
     });
-  }
 }
 
 squareSizing();
-
-function setOffset(section) {
-  if(windowWidth > 720 && !isMobile && !section.hasClass('hero')){
-    offset = -72;
-  } else {
-    offset = 0;
-  }
-}
-
-setOffset($('.hero'));
-
-
 
 /*
 
@@ -86,23 +72,6 @@ var swiper = new Swiper('.swiper1', {
 
 /*
 
-==================
-
-  🎨 SCROLLIFY 🎨
-
-==================
-
-*/
-
-$.scrollify({
-  section : ".block",
-  setHeights : false,
-  offset : offset,
-  standardScrollElements : ".info .block__testimonials",
-});
-
-/*
-
 =========================
 
   🎨 INCLUDE INSTAGRAM 🎨
@@ -112,7 +81,7 @@ $.scrollify({
 */
 
 var instagram = {
-  token: "1975026352.1677ed0.8ac004345c684393be5e69da15385e86",
+  token: "3187623924.1677ed0.3bd611908d95486f8acd4b51e806f853",
   count: '&count=20',
   template: Handlebars.compile($("#insta-template").html()),
   clientX: undefined,
@@ -167,37 +136,39 @@ var nav = {
     burgerBarBot: $('.burger__bar--bot'),
     opened: false,
     init: function(varScroll){
-      scrollCurrent = $.scrollify.current();
-      setOffset(scrollCurrent);
-      console.log(offset);
-      if((windowWidth < 720 && isMobile) && (varScroll < windowHeight - 39 || scrollCurrent.hasClass('block--commissions') || (scrollCurrent.hasClass('info') && footerHeight >= windowHeight - 28))){
+      if(windowWidth < 700 && (varScroll < windowHeight - 39)){
         this.cart.addClass('white');
         this.cart.find('svg').addClass('white');
       } else {
         this.cart.removeClass('white');
         this.cart.find('svg').removeClass('white');
       }
-      if((windowWidth >= 720 && !isMobile) && varScroll >= windowHeight - 72){
+      if((windowWidth >= 700 && !isMobile) && varScroll >= windowHeight - 72){
         this.hero.addClass('fixed');
-        this.logoLink.empty();
-        this.logoLink.append('<img class="menu__logo" src="' + this.logoSrc + '" alt="Home">');
       } else {
         this.hero.removeClass('fixed');
-        this.logoLink.empty();
-        this.logoLink.append('Home');
+      }
+      if((windowWidth >= 1080 && !isMobile) && varScroll >= windowHeight - 72){
+          this.logoLink.empty();
+          this.logoLink.append('<img class="menu__logo" src="' + this.logoSrc + '" alt="Home">');
+          this.logoLink.addClass('image');
+      } else {
+          this.logoLink.empty();
+          this.logoLink.append('Home');
+          this.logoLink.removeClass('image');
       }
     },
     opening: function(){
       this.burger.click(function(){
         if(!this.opened){
-          this.nav.addClass('open');
-          this.burger.addClass('open');
+          this.hero.addClass('open');
+          this.burger.css('animation', '.3s burgerBGgo forwards');
           this.burgerBarTop.css('animation', '.6s burgerBarTopIn forwards');
           this.burgerBarBot.css('animation', '.6s burgerBarBotIn forwards');
           this.opened = true;
         } else {
-          this.nav.removeClass('open');
-          this.burger.removeClass('open');
+          this.hero.removeClass('open');
+          this.burger.css('animation', '.3s burgerBGback forwards');
           this.burgerBarTop.css('animation', '.3s burgerBarTopOut forwards');
           this.burgerBarBot.css('animation', '.3s burgerBarBotOut forwards');
           this.opened = false;
@@ -208,13 +179,6 @@ var nav = {
 
 nav.opening();
 nav.init(scrollLevel);
-
-$.scrollify({
-  section : ".block",
-  setHeights : false,
-  offset : offset,
-  standardScrollElements : ".info, .block__testimonials",
-});
 
 /*
 
@@ -230,8 +194,7 @@ $(window).scroll(_.throttle(
   function(){
     scrollLevel = $(this).scrollTop();
     nav.init(scrollLevel);
-  }
-, 300));
+  }, 300));
 
 /*
 
@@ -251,6 +214,5 @@ $(window).resize(
     nav.init(scrollLevel);
     headerSizing();
     squareSizing();
-    setOffset(scrollCurrent);
   }
 );

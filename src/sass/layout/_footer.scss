@@ -6,7 +6,7 @@
   .wrapper {
     display: flex;
     flex-flow: wrap;
-    padding: 80px $gutter 150px;
+    padding: 100px $gutter 120px;
   }
   .info__column {
     padding-top: 5px;
@@ -44,9 +44,6 @@
     color: #fff;
     cursor: pointer;
   }
-  input:focus {
-    border: 1px solid $grey2;
-  }
   .menu__page {
     padding: 5px;
   }
@@ -62,4 +59,20 @@
     color: $blue;
     font-size: 2.2rem;
   }
+}
+
+@media screen and (min-width: $screenSM) {
+    .inputSubmit {
+        @include transition;
+        &:hover {
+            border: $border;
+            background: #fff;
+            color: $blue;
+        }
+    }
+    .info {
+        .menu__link::after {
+            bottom: -3px;
+        }
+    }
 }

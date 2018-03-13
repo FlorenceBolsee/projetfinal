@@ -3,18 +3,12 @@
   padding: $gutter;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: url('../img/headerBG.jpg');
   background-size: cover;
-  .menu, .wrapper {
-    position: relative;
-  }
-  .menu {
-    @media screen and (min-width: $screenSM) {
-      position: static;
-    }
-  }
+  overflow: hidden;
   .wrapper {
-    margin: auto;
+    position: relative;
     z-index: 10;
   }
 }
@@ -23,36 +17,27 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  overflow: hidden;
   z-index: 1;
-  object-fit: cover;
+  @supports (object-fit: cover) {
+    object-fit: cover;
+  }
 }
 .hero__logo {
   max-width: 100%;
+  @supports (object-fit: contain) {
+    object-fit: contain;
+  }
   @media screen and (min-width: $screenLG) {
     max-width: 1200px;
   }
 }
 .hero__title {
   flex-basis: 100%;
-}
-
-@supports not (object-fit: cover){
-  .hero {
-    overflow: hidden;
-    width: 100%;
-    .hero_bg {
-      position: absolute;
-      top: -9999px;
-      right: -9999px;
-      bottom: -9999px;
-      left: -9999px;
-      margin: auto;
-      min-width: 100%;
-      min-height: 100%;
-    }
-  }
 }
 
 /*
@@ -72,7 +57,7 @@
   display: inline-block;
   width: 80%;
   height: 1px;
-  background: $blue;
+  background: #fff;
   @include transition;
 }
 
@@ -96,20 +81,13 @@
   width: 31px;
   height: 28px;
   padding: 7px 4px;
-  background: #fff;
-  border-top: $border;
-  border-right: $border;
+  background: $blue;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
   cursor: pointer;
   z-index: 1000;
   @media screen and (min-width: $screenSM) {
     display: none;
-  }
-}
-
-.burger.open {
-  background: none;
-  .burger__bar--mid {
-    width: 0;
   }
 }
 
@@ -125,13 +103,24 @@
 
 .hero {
   position: relative;
+  .menu {
+    position: fixed;
+    top: $gutter;
+    right: $gutter;
+    z-index: 999;
+    @media screen and (min-width: $screenSM) {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+  }
   .menu__pages {
     position: fixed;
     top: $gutter;
     right: $gutter;
     display: inline-block;
-    background: #fff;
-    border: $border;
+    background: $blue;
+    border: 1px solid #fff;
     width: 32px;
     height: 29px;
     padding: 0;
@@ -139,13 +128,16 @@
     z-index: 999;
     @include transition;
     @media screen and (min-width: $screenSM) {
-      display: flex;
-      justify-content: space-between;
-      position: absolute;
-      width: auto;
-      height: auto;
-      border: 0;
-      background: none;
+        width: 90%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        right: 0;
+        height: auto;
+        border: 0;
+        background: none;
+        transition-property: none;
     }
     .menu__link {
       display: block;
@@ -163,59 +155,104 @@
     padding: .8rem;
     @media screen and (min-width: $screenSM) {
       display: block;
-      padding: 0 .8rem;
+      padding: 0;
     }
   }
-  .menu__cart {
+  a.menu__cart {
     position: fixed;
     top: $gutter;
     left: $gutter;
     z-index: 1000;
+    background: #fff;
+    border: $border;
+    width: 32px;
+    height: 29px;
+    padding: 3px;
+    display: flex;
+    transition-property: opacity;
     @media screen and (min-width: $screenSM) {
       position: absolute;
-      top: .9rem;
-      left: .9rem;
-    }
-  }
-  .menu__pages.open {
-    width: 180px;
-    height: 375px;
-    padding: 3.6rem;
-    .menu__page {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .menu__link {
-      animation: .6s menuLinksApparition forwards;
+      background: none;
+      border: 0;
+      padding: 0;
+      width: auto;
+      height: auto;
+      @include transition;
     }
   }
 }
 
+a.menu__cart.white {
+    background: none;
+    border: 0;
+}
+.hero.open {
+    .menu__pages {
+      width: 180px;
+      height: 375px;
+      padding: 3.6rem;
+      background: #fff;
+      border: $border;
+      .menu__link {
+        animation: .6s menuLinksApparition forwards;
+      }
+    }
+    .menu__page {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .burger {
+      background: none;
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      .burger__bar {
+          background: $blue;
+      }
+      .burger__bar--mid {
+        width: 0;
+      }
+    }
+}
+
 .hero.fixed {
-  .menu__cart {
-    position: fixed;
-    color: $blue;
-    top: $gutter;
-    left: $gutter;
-  }
-  .menu__pages {
-    position: fixed;
-    background: #fff;
-    padding: $gutter;
-    top: 0;
-    right: 0;
-    width: 100%;
-    transition-property: none;
-    .menu__link {
-      color: $blue;
+    .menu {
+        background: #fff;
+        width: 100%;
+        height: 72px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        @media screen and (min-width: $screenLG) {
+            height: 85px;
+        }
     }
-    .menu__logo {
-      height: 21px;
-      margin-left: $marginLG;
-      position: relative;
-      bottom: 4px;
+    .menu__cart {
+        position: fixed;
+        color: $blue;
+        top: $gutter;
+        left: $gutter;
     }
-  }
+    .menu__pages {
+        position: fixed;
+        padding: $gutter $gutter $gutter $marginLG;
+        top: 0;
+        right: 0;
+        width: 100%;
+        transition-property: none;
+        .menu__link {
+            color: $blue;
+        }
+        .menu__logo {
+            height: 21px;
+            margin-left: $marginLG;
+            position: relative;
+            bottom: 4px;
+            @media screen and (min-width: $screenLG) {
+                height: 33px;
+                bottom: 8px;
+            }
+        }
+    }
 }
 
 /*
@@ -258,4 +295,60 @@
   0%{bottom: 13px; transform: translateX(-50%) rotate(45deg); width: 75%;}
   50%{bottom: 13px; transform: translateX(-50%); width: 80%;}
   100%{bottom: 7px; transform: translateX(-50%); width: 80%;}
+}
+
+@keyframes burgerBGgo {
+    0%{background: $blue; border-top: 1px solid #fff; border-right: 1px solid #fff;}
+    100%{background: none; border-top: 1px solid transparent; border-right: 1px solid transparent;}
+}
+
+@keyframes burgerBGback {
+    0%{background: none; border-top: 1px solid transparent; border-right: 1px solid transparent;}
+    99%{background: none; border-top: 1px solid transparent; border-right: 1px solid transparent;}
+    100%{background: $blue; border-top: 1px solid #fff; border-right: 1px solid #fff;}
+}
+
+/*
+
+================
+
+  🎨 HOVER 🎨
+
+===============
+
+*/
+
+@media screen and (min-width: $screenSM) {
+    .menu__link:not(.menu__logo) {
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0%;
+            height: 1px;
+            background: #fff;
+            opacity: .8;
+            @include transition;
+        }
+    }
+    .menu__link, .menu__cart, .info__social {
+        &:hover {
+            opacity: .8 !important;
+        }
+    }
+    .menu__link:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+    .hero.fixed {
+        .menu__link {
+            &::after {
+                background: $blue;
+            }
+        }
+    }
 }

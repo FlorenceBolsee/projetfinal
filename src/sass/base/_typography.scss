@@ -48,6 +48,9 @@ a {
   text-align: center;
   padding-top: $marginMD;
   @extend .josefin;
+  @media screen and (min-width: $screenLG) {
+      font-size: 3.8rem;
+  }
 }
 
 .content__title {
@@ -60,6 +63,10 @@ a {
   padding: $marginLG;
   border-bottom: $borderLight;
   @extend .josefin;
+  @media screen and (min-width: $screenLG) {
+      font-size: 5.7rem;
+      padding: $marginLG 0;
+  }
 }
 
 .block__title {
@@ -70,6 +77,9 @@ a {
   letter-spacing: 2px;
   text-align: left;
   @extend .josefin;
+  @media screen and (min-width: $screenLG) {
+      font-size: 4rem;
+  }
 }
 
 .slide__title, .block--exhibition .block__title {
@@ -133,7 +143,7 @@ a {
 
 .block__button {
   color: #fff;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
   font-weight: 300;
   text-align: center;
@@ -164,15 +174,23 @@ a {
       font-size: 1rem;
       font-family: 'Josefin Sans', sans-serif;
       text-transform: uppercase;
+      &:hover {
+        color: #fff;
+      }
+    }
+    @media screen and (min-width: $screenLG) {
+        font-size: 1.6rem;
     }
   }
   .menu__cart {
-    font-size: 3rem;
+    font-size: 2rem;
     @media screen and (min-width: $screenSM) {
-      font-size: 1.3rem;
+        font-size: 1.3rem;
+    }
+    @media screen and (min-width: $screenLG) {
+        font-size: 2rem;
     }
   }
-
   .menu__cart.white {
     color: #fff;
     &:hover {
