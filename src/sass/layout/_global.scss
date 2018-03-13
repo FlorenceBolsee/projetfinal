@@ -126,7 +126,7 @@ html {
           width: 100%;
       }
     }
-    .block__testimonials {
+    .block--testimonials {
       .block__illu {
         height: 320px;
         }
@@ -203,7 +203,7 @@ html {
 
 */
 
-.block__testimonials {
+.block--testimonials {
   .block__face {
     width: 85px;
     height: 85px;
@@ -551,6 +551,35 @@ html {
     .block--exhibition {
         text-align: center;
         padding: $marginMD 0;
+    }
+    .block--testimonials {
+        position: relative;
+        height: 840px;
+        margin-bottom: $marginXL;
+        .block__container {
+            position: static;
+            height: 0;
+        }
+        .block__illu {
+            width: 35%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .wrapper {
+            align-self: flex-start;
+        }
+        .block__face {
+            width: 200px;
+            height: 200px;
+        }
+        .block__name {
+            padding-top: $marginLG;
+        }
+        .block__quote {
+            padding-top: $gutter;
+        }
     }
 }
 

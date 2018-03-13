@@ -126,8 +126,9 @@ a {
 .info__title--subscribe {
   text-align: center;
   padding-top: $marginSM;
-  @media screen and (min-width: $screenSM) {
+  @media screen and (min-width: $screenMD) {
     padding-top: 0;
+    text-align: left;
   }
 }
 

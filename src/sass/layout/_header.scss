@@ -7,6 +7,9 @@
   background: url('../img/headerBG.jpg');
   background-size: cover;
   overflow: hidden;
+  @media screen and (min-width: $screenLG) {
+      padding: $marginMD;
+  }
   .wrapper {
     position: relative;
     z-index: 10;
@@ -129,7 +132,7 @@
     @include transition;
     @media screen and (min-width: $screenSM) {
         width: 90%;
-        max-width: 1200px;
+        max-width: 1400px;
         display: flex;
         justify-content: space-between;
         position: absolute;
@@ -138,6 +141,10 @@
         border: 0;
         background: none;
         transition-property: none;
+    }
+    @media screen and (min-width: $screenLG) {
+        top: $marginMD;
+        right: $marginMD;
     }
     .menu__link {
       display: block;
@@ -178,6 +185,10 @@
       width: auto;
       height: auto;
       @include transition;
+    }
+    @media screen and (min-width: $screenLG) {
+        top: $marginMD;
+        left: $marginXL;
     }
   }
 }
@@ -222,6 +233,8 @@ a.menu__cart.white {
         position: fixed;
         top: 0;
         right: 0;
+        transition-property: none;
+        transform: translateZ(0);
         @media screen and (min-width: $screenLG) {
             height: 85px;
         }
@@ -231,14 +244,20 @@ a.menu__cart.white {
         color: $blue;
         top: $gutter;
         left: $gutter;
+        @media screen and (min-width: $screenLG) {
+            left: $marginXL;
+        }
     }
     .menu__pages {
         position: fixed;
-        padding: $gutter $gutter $gutter $marginLG;
+        padding: $gutter $gutter $gutter $marginXL;
         top: 0;
         right: 0;
         width: 100%;
         transition-property: none;
+        @media screen and (min-width: $screenMD) {
+            padding: $gutter $marginXL;
+        }
         .menu__link {
             color: $blue;
         }
@@ -319,7 +338,7 @@ a.menu__cart.white {
 */
 
 @media screen and (min-width: $screenSM) {
-    .menu__link:not(.menu__logo) {
+    .menu__link:not(.image) {
         position: relative;
         &::after {
             content: '';

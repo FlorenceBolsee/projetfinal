@@ -7,22 +7,36 @@
     display: flex;
     flex-flow: wrap;
     padding: 100px $gutter 120px;
+    @media screen and (min-width: $screenLG) {
+        padding: 150px $gutter 200px;
+    }
   }
   .info__column {
     padding-top: 5px;
     flex-grow: 1;
   }
-  .info__column--elsewhere {
-    margin-left: 10%;
+  .info__column:not(.info__column--elsewhere) {
+      @media screen and (min-width: $screenMD) {
+          max-width: 600px;
+      }
   }
   .info__column--subscribe, .info__column--elsewhere {
-    @media screen and (min-width: $screenSM) {
+    @media screen and (min-width: $screenMD) {
       margin-left: 5%;
     }
   }
+  .info__column--elsewhere {
+    margin-left: 5%;
+    @media screen and (min-width: $screenLG) {
+      margin-left: 10% !important;
+    }
+  }
   .info__column--subscribe {
-    @media screen and (min-width: $screenSM) {
+    @media screen and (min-width: $screenMD) {
       flex-basis: 50%;
+    }
+    @media screen and (min-width: $screenLG) {
+        flex-basis: 30%;
     }
   }
   input {
@@ -34,6 +48,9 @@
   }
   .inputSearch {
     margin-top: 0;
+    @media screen and (min-width: $screenSM) {
+        max-width: 300px
+    }
   }
   .inputSubmit {
     width: auto;
@@ -74,5 +91,11 @@
         .menu__link::after {
             bottom: -3px;
         }
+    }
+}
+
+@media screen and (min-width: $screenLG) {
+    .info__title--copyright {
+        padding-top: $marginXL;
     }
 }

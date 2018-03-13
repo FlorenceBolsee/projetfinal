@@ -108,6 +108,7 @@ var instagram = {
     $.getJSON('https://api.instagram.com/v1/users/self/media/recent/?access_token=' + this.token + this.count)
         .done( function(data) {
           var insta = this.template(data);
+          $('.swiperInstagram .swiper-wrapper').empty();
           $('.swiperInstagram .swiper-wrapper').append(insta);
           var swiperInsta = new Swiper('.swiperInstagram', {
                 slidesPerView: instaCount,
@@ -155,6 +156,7 @@ var nav = {
     burgerBarTop: $('.burger__bar--top'),
     burgerBarBot: $('.burger__bar--bot'),
     opened: false,
+    fixed: false,
     init: function(varScroll){
       if(windowWidth < 700 && (varScroll < windowHeight - 39)){
         this.cart.addClass('white');
@@ -164,9 +166,15 @@ var nav = {
         this.cart.find('svg').removeClass('white');
       }
       if((windowWidth >= 700 && !isMobile) && varScroll >= windowHeight - 72){
-        this.hero.addClass('fixed');
+        if(this.fixed == false){
+            this.hero.addClass('fixed');
+            this.fixed = true;
+        }
       } else {
-        this.hero.removeClass('fixed');
+          if(this.fixed == true){
+            this.hero.removeClass('fixed');
+            this.fixed = false;
+          }
       }
       if((windowWidth >= 1080 && !isMobile) && varScroll >= windowHeight - 72){
           this.logoLink.empty();
@@ -214,7 +222,7 @@ $(window).scroll(_.throttle(
   function(){
     scrollLevel = $(this).scrollTop();
     nav.init(scrollLevel);
-  }, 300));
+}, 50));
 
 /*
 
