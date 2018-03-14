@@ -89,6 +89,10 @@ section {
   padding-bottom: $gutter;
 }
 
+.block--exhibition {
+  padding: $gutter;
+}
+
 /*
 
 ================
@@ -438,6 +442,14 @@ section {
 */
 
 @media screen and (min-width: $screenMD) {
+    .block--exhibition, .block--last-painting, .block--last-product {
+      padding: $marginXL 0;
+      @supports (max-width: 1200px) {
+        max-width: 1200px;
+      }
+      width: 100%;
+      margin: 0 auto;
+    }
     .block--about, .block--commissions {
         position: relative;
         .wrapper--about {
@@ -487,12 +499,6 @@ section {
         }
     }
     .block--last-painting, .block--last-product {
-        padding: $gutter;
-        @supports (max-width: 1200px) {
-          max-width: 1200px;
-        }
-        width: 100%;
-        margin: 0 auto;
         .slide__link {
             flex-basis: 50%;
         }
@@ -691,10 +697,8 @@ section {
             left: auto;
         }
     }
-    .wrapper--exhibition {
-        margin: 0 auto;
-    }
     .block--exhibition {
+        margin: 0 auto;
         padding: $marginXL 0;
     }
     .block--instagram {

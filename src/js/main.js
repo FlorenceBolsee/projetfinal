@@ -177,6 +177,18 @@ var nav = {
 nav.opening();
 nav.init(scrollLevel);
 
+$('.block__more').click(function(){
+  $(this).empty();
+  if(!$(this).hasClass('open')){
+    $(this).append('Read less');
+    $(this).addClass('open');
+  } else {
+    $(this).append('Read more');
+    $(this).removeClass('open');
+  }
+  $(this).closest('.wrapper--exhibitions').find('.block__text--hidden').slideToggle();
+});
+
 /*
 
 =========================
@@ -191,7 +203,6 @@ $(window).scroll(_.throttle(
   function(){
     scrollLevel = $(this).scrollTop();
     nav.init(scrollLevel);
-    console.log(scrollLevel);
 }, 50));
 
 var reveal = function () {
@@ -215,8 +226,6 @@ var reveal = function () {
     }
   });
 };
-
-console.log($('.block--instagram').offset().top - windowHeight);
 
 window.addEventListener('scroll', _.throttle(reveal, 300));
 
@@ -264,26 +273,3 @@ if(navigator.userAgent.match(/Trident\/7\./) || window.navigator.userAgent.index
             window.scrollTo(0, currentScrollPosition - wheelDelta);
         });
 }
-
-/*
-
-=================
-
-  🎨 ISOTOPE 🎨
-
-================
-
-*/
-
-var $grid = $('.grid');
-
-$grid.isotope({
-  // options
-  itemSelector: '.grid-item',
-  layoutMode: 'fitRows'
-});
-
-$('.filter-button-group').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
-  $grid.isotope({ filter: filterValue });
-});

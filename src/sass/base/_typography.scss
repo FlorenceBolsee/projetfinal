@@ -141,6 +141,20 @@ a {
   }
 }
 
+.block__title--exhibitions {
+  letter-spacing: 0;
+  color: $grey2;
+  font-weight: 400;
+  font-size: 1.4rem;
+  text-align: center;
+  text-transform: none;
+  font-family: 'Lato', sans-serif;
+  @media screen and (min-width: $screenMD) {
+    font-size: 2rem;
+    text-align: left;
+  }
+}
+
 /*
 
 ==============
@@ -273,4 +287,22 @@ small {
   .inputSearch::placeholder {
     text-align: center;
   }
+}
+
+.block__date, .block__more, .block__address {
+  font-weight: 700;
+  @media screen and (min-width: $screenMD) {
+    font-size: 1.7rem;
+  }
+}
+
+.block__date {
+  text-align: center;
+  @media screen and (min-width: $screenMD) {
+    text-align: left;
+  }
+}
+
+.block__more {
+  color: $grey2;
 }
