@@ -1,0 +1,110 @@
+.block--gallery {
+  @media screen and (min-width: $screenMD) {
+    @supports (max-width: 1200px) {
+      max-width: 1200px;
+    }
+    width: 100%;
+    margin: 0 auto;
+    padding: $gutter;
+  }
+  @media screen and (min-width: $screenLG) {
+    padding: 0;
+  }
+  .grid {
+    width: 100%;
+    @media screen and (min-width: $screenMD) {
+      width: 80%;
+    }
+  }
+
+  .grid-item {
+    width: 100%;
+    padding: $gutter;
+    position: relative;
+    @media screen and (min-width: $screenSM) {
+      width: 50%;
+    }
+    @media screen and (min-width: $screenMD) {
+      width: 33%;
+      padding: 10px;
+    }
+    @media screen and (min-width: $screenLG) {
+      max-width: 320px;
+    }
+  }
+
+  .slide__container {
+    @media screen and (min-width: $screenMD) {
+      width: 100%;
+      position: absolute;
+      padding: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+    }
+  }
+
+  .slide__title {
+    margin-bottom: $marginMD;
+  }
+
+  .button-group {
+    width: 100%;
+    padding: 0 $gutter $marginMD;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    @media screen and (min-width: $screenMD) {
+      width: 20%;
+      padding: 0;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .button {
+      cursor: pointer;
+      text-align: left;
+      border: 0;
+      background: none;
+      @media screen and (min-width: $screenMD) {
+        padding-bottom: $gutter;
+      }
+      &--all {
+        margin-right: 100%;
+        padding-bottom: $gutter;
+        @media screen and (min-width: $screenMD) {
+          margin-right: 0;
+        }
+      }
+       // hover
+      @media screen and (min-width: $screenSM) {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0%;
+          height: 1px;
+          background: $accentColor;
+          opacity: .8;
+          @include transition;
+        }
+        &:hover {
+            opacity: .8 !important;
+            &::after {
+                width: 80%;
+            }
+        }
+      }
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    @media screen and (min-width: $screenSM) {
+      opacity: .3;
+    }
+  }
+}
