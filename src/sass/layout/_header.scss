@@ -66,18 +66,15 @@
   height: 1px;
   background: #fff;
   @include transition;
-}
-
-.burger__bar--top {
-  top: 7px;
-}
-
-.burger__bar--mid {
-  top: 13px;
-}
-
-.burger__bar--bot {
-  bottom: 7px;
+  &--top {
+    top: 7px;
+  }
+  &--mid {
+    top: 13px;
+  }
+  &--bot {
+    bottom: 7px;
+  }
 }
 
 .burger {
@@ -135,7 +132,7 @@
     z-index: 999;
     @include transition;
     @media screen and (min-width: $screenSM) {
-        width: 90%;
+        width: 80%;
         max-width: 1400px;
         display: flex;
         justify-content: space-between;
@@ -192,7 +189,7 @@
     }
     @media screen and (min-width: $screenLG) {
         top: $marginMD;
-        left: $marginXL;
+        left: $marginLG;
     }
   }
 }
@@ -249,7 +246,7 @@ a.menu__cart.white {
         top: $gutter;
         left: $gutter;
         @media screen and (min-width: $screenLG) {
-            left: $marginXL;
+            left: $marginLG;
         }
     }
     .menu__pages {

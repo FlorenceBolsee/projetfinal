@@ -6,6 +6,7 @@ var isMobile = is_mobile();
 var $squares = [$('.block--last-product .slide__img'), $('.block--last-painting .slide__img'), $('.block--last-product .slide__link'), $('.block--last-painting .slide__link')];
 var $body = $(document.body);
 var headerHeight = $('.hero').height();
+var blockList = [];
 
 function is_mobile() {
   if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
@@ -54,6 +55,27 @@ function squareSizing(){
 }
 
 squareSizing();
+
+var left;
+
+function revealList(){
+  $(".reveal").each(
+    function(){
+      if($(this).hasClass('reveal--left')){
+        left = true;
+      } else {
+        left = false;
+      }
+      blockList.push({
+        block: $(this),
+        blockOffset: $(this).offset().top,
+        left: left
+      });
+    }
+  );
+}
+
+revealList();
 
 /*
 
@@ -167,6 +189,30 @@ $(window).scroll(_.throttle(
     scrollLevel = $(this).scrollTop();
     nav.init(scrollLevel);
 }, 50));
+
+var reveal = function () {
+  scrollLevel = $(this).scrollTop();
+  blockList.forEach(function(item) {
+    if(scrollLevel > item.blockOffset - windowHeight){
+      item.block.removeClass("reveal");
+      if(item.left){
+        item.block.removeClass("reveal--left");
+      } else {
+        item.block.removeClass("reveal--right");
+      }
+    }
+    if(scrollLevel == 0){
+      item.block.addClass("reveal");
+      if(item.left){
+        item.block.addClass("reveal--left");
+      } else {
+        item.block.addClass("reveal--right");
+      }
+    }
+  });
+};
+
+window.addEventListener('scroll', _.throttle(reveal, 300));
 
 /*
 
