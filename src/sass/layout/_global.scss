@@ -64,7 +64,7 @@ section {
     &--instagram {
       padding: 0 $gutter;
     }
-    &--about {
+    &--about, &--blog {
       padding: 0;
     }
 }
@@ -442,13 +442,15 @@ section {
 */
 
 @media screen and (min-width: $screenMD) {
+    .block:not(.hero, .info, .block--about, .block--commissions, .block--last-news, .block--last-post, .block--testimonials) {
+        @supports (max-width: 1200px) {
+          max-width: 1200px;
+        }
+        width: 1200px;
+        margin: 0 auto;
+    }
     .block--exhibition, .block--last-painting, .block--last-product {
       padding: $marginXL 0;
-      @supports (max-width: 1200px) {
-        max-width: 1200px;
-      }
-      width: 100%;
-      margin: 0 auto;
     }
     .block--about, .block--commissions {
         position: relative;
@@ -646,7 +648,6 @@ section {
         width: 100%;
         .wrapper--about {
             padding-bottom: $marginXL;
-            margin: 0 auto;
             width: 1200px;
         }
         .wrapper:not(.wrapper--about) {
@@ -654,6 +655,12 @@ section {
         }
         .block__title {
             padding: $marginLG !important;
+        }
+    }
+    .block--about {
+        .wrapper:not(.wrapper--about) {
+            padding-left: 0;
+            width: 100%;
         }
     }
     .block--commissions {
@@ -703,11 +710,6 @@ section {
     }
     .block--instagram {
         padding: $marginXL 0;
-        @supports (max-width: 1200px) {
-          max-width: 1200px;
-        }
-        width: 100%;
-        margin: 0 auto;
         .swiper-container {
             padding: 0 $marginLG $marginXL;
         }

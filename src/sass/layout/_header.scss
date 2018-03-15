@@ -263,13 +263,15 @@ a.menu__cart.white {
             color: $blue;
         }
         .menu__logo {
-            height: 21px;
+            width: 177px;
+            height: 22px;
             margin-left: $marginLG;
             position: relative;
-            bottom: 4px;
+            bottom: 5px;
             @media screen and (min-width: $screenLG) {
-                height: 33px;
-                bottom: 8px;
+                width: 220px;
+                height: 28px;
+                bottom: 7px;
             }
         }
     }

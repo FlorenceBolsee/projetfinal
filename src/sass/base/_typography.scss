@@ -91,18 +91,21 @@ a {
   padding-top: $gutter;
 }
 
-.block--last-news, .block--last-post {
+.block--last-news, .block--last-post, .block--blog {
   .slide__title {
     color: #fff;
     text-align: left;
     width: 100%;
     letter-spacing: 2px;
   }
-  .slide__text {
-    color: #fff;
-    border-top: 1px solid #fff;
-    font-weight: 300;
-  }
+}
+
+.block--last-news, .block--last-post {
+    .slide__text {
+      color: #fff;
+      border-top: 1px solid #fff;
+      font-weight: 300;
+    }
 }
 
 .block--gallery {
@@ -305,4 +308,11 @@ small {
 
 .block__more {
   color: $grey2;
+}
+
+.block--blog {
+    .block__date {
+        text-align: left;
+        color: #fff;
+    }
 }

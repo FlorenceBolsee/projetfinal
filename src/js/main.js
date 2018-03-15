@@ -119,7 +119,7 @@ var nav = {
     nav: $('.menu__pages'),
     hero: $('.hero'),
     logoLink: $('.menu__link--logo'),
-    logoSrc: 'img/logo_small.png',
+    logoSrc: 'img/logo-mini.svg',
     burger: $('.burger'),
     cart: $('.menu__cart'),
     burgerBarTop: $('.burger__bar--top'),
