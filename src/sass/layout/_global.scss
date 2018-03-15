@@ -205,14 +205,16 @@ section {
   margin-bottom: 0;
 }
 
-.block__button {
+.block__button, .contact__btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: .9rem $gutter;
+  padding: .9rem $marginSM;
   background: $accentColor;
   border: 1px solid $accentColor;
   margin: $marginMD 0;
+  cursor: pointer;
+  @include transition;
 }
 
 .block--about, .block--commissions {
@@ -379,7 +381,7 @@ section {
 */
 
 @media screen and (min-width: $screenSM) {
-    .block__button {
+    .block__button, .contact__btn {
         &:hover {
             background: #fff;
             color: $accentColor;
@@ -446,8 +448,6 @@ section {
         @supports (max-width: 1200px) {
           max-width: 1200px;
         }
-        width: 1200px;
-        margin: 0 auto;
     }
     .block--exhibition, .block--last-painting, .block--last-product {
       padding: $marginXL 0;
@@ -641,6 +641,10 @@ section {
 
 
 @media screen and (min-width: $screenLG) {
+    .block:not(.hero, .info, .block--about, .block--commissions, .block--last-news, .block--last-post, .block--testimonials) {
+        width: 1200px;
+        margin: 0 auto;
+    }
     .wrapper--title {
         margin: 0 auto;
     }
