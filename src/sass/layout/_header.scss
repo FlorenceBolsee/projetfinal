@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('../img/headerBG.jpg');
+  background: url('../img/Pallette 1.jpg');
   background-size: cover;
   overflow: hidden;
   @media screen and (min-width: $screenLG) {
@@ -19,6 +19,7 @@
     }
   }
 }
+
 .hero__bg {
   position: absolute;
   top: 50%;

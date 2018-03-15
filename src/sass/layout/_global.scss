@@ -310,7 +310,7 @@ section {
 
 */
 
-.swiper1, .swiperInstagram, .slide__img--last-news, .slide__img--instagram  {
+.swiper1, .swiperInstagram, .swiperSingle,  .slide__img--last-news, .slide__img--instagram {
     width: 100%;
 }
 
@@ -387,7 +387,7 @@ section {
             color: $accentColor;
         }
     }
-    .block__text a {
+    .block__text a, .block__link {
         &:hover {
             opacity: .7;
         }
@@ -651,7 +651,7 @@ section {
     .block--about, .block--commissions {
         width: 100%;
         .wrapper--about {
-            padding-bottom: $marginXL;
+            padding-bottom: $marginLG;
             width: 1200px;
         }
         .wrapper:not(.wrapper--about) {
@@ -790,3 +790,13 @@ section {
         height: 9rem;
     }
 }
+
+/*
+
+==================
+
+  🎨 SQUARES 🎨
+
+==================
+
+*/

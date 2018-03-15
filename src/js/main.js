@@ -7,6 +7,7 @@ var $squares = [$('.block--last-product .slide__img'), $('.block--last-painting 
 var $body = $(document.body);
 var headerHeight = $('.hero').height();
 var blockList = [];
+var slidesCount;
 
 function is_mobile() {
   if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
@@ -54,8 +55,6 @@ function squareSizing(){
     });
 }
 
-squareSizing();
-
 var left;
 
 function revealList(){
@@ -76,10 +75,6 @@ function revealList(){
   );
 }
 
-$(document).ready(function(){
-  revealList();
-});
-
 /*
 
 ===============
@@ -90,17 +85,50 @@ $(document).ready(function(){
 
 */
 
-var swiper = new Swiper('.swiper1', {
-      slidesPerView: 1,
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+if($('.swiper1')){
+    var swiper = new Swiper('.swiper1', {
+          slidesPerView: 1,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+    });
+}
+
+function swiperSingle() {
+    if(windowWidth < 700){
+        slidesCount = 1;
+    } else if(windowWidth < 1000) {
+        slidesCount = 2;
+    } else {
+        slidesCount = 3;
+    }
+    if($('.swiperSingle')){
+        var swiper = new Swiper('.swiperSingle', {
+            slidesPerView: slidesCount,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            }
+        });
+    }
+}
+
+swiperSingle();
+
+$(document).ready(function(){
+  revealList();
+  squareSizing();
 });
 
 
@@ -247,6 +275,7 @@ $(window).resize(
     headerHeight = $('.hero').height();
     nav.init(scrollLevel);
     headerSizing();
+    swiperSingle();
     squareSizing();
     revealList();
   }

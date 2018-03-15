@@ -60,12 +60,11 @@ a {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  padding: $marginLG;
+  padding: $marginLG 0;
   border-bottom: $borderLight;
   @extend .josefin;
   @media screen and (min-width: $screenLG) {
       font-size: 5.7rem;
-      padding: $marginLG 0;
   }
 }
 
@@ -156,6 +155,21 @@ a {
     font-size: 2rem;
     text-align: left;
   }
+}
+
+.block--content {
+    .block__title {
+        color: $grey2;
+        text-align: center;
+        font-family: 'Lato', sans-serif;
+        text-transform: inherit;
+        font-size: 1.6rem;
+        letter-spacing: 0;
+    }
+    .block__address, .block__date {
+        font-weight: 400;
+        text-align: center;
+    }
 }
 
 /*

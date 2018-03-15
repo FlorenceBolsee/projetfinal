@@ -1,0 +1,87 @@
+.block--headline {
+    .block__img {
+        position: static;
+        height: 270px;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        cursor: pointer;
+        @media screen and (min-width: $screenSM) {
+            height: 370px;
+        }
+        @media screen and (min-width: $screenMD) {
+            height: 470px;
+        }
+        @media screen and (min-width: $screenLG) {
+            height: 570px;
+        }
+    }
+    .block__container {
+        height: auto;
+        padding: $gutter;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap;
+        @media screen and (min-width: $screenLG) {
+            padding: $gutter 0;
+        }
+    }
+    .block__date {
+        padding: 0;
+    }
+    .block__tax {
+        text-align: right;
+    }
+    .block__tax--tags {
+        flex-basis: 100%;
+    }
+}
+
+.block--slideshow {
+    .slide__img {
+        cursor: pointer;
+        padding-bottom: 100%;
+    }
+}
+
+.block--content {
+    justify-content: flex-start;
+    padding: $gutter;
+    @media screen and (min-width: $screenLG) {
+        padding: $gutter 0;
+    }
+    .block__link--more {
+        padding-top: $gutter;
+    }
+    .block__title {
+        border-bottom: $borderLight;
+        padding: $marginSM 0 $gutter;
+    }
+    .block__container {
+        display: flex;
+        align-items: flex-start;
+        flex-flow: wrap;
+        height: auto;
+        &--info {
+            display: block;
+            flex-basis: 47%;
+            @media screen and (min-width: $screenLG) {
+                flex-basis: 582px;
+            }
+        }
+        &--when {
+            margin-left: 6%;
+            @media screen and (min-width: $screenLG) {
+                margin-left: 36px;
+            }
+        }
+    }
+    .block__address {
+        padding-top: $gutter;
+    }
+    .block__date {
+        @media screen and (min-width: $screenMD) {
+            padding-top: $gutter;
+        }
+    }
+}
