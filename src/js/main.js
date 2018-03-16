@@ -186,13 +186,13 @@ var nav = {
       this.burger.click(function(){
         if(!this.opened){
           this.hero.addClass('open');
-          this.burger.css('animation', '.3s burgerBGgo forwards');
+          //this.burger.css('animation', '.3s burgerBGgo forwards');
           this.burgerBarTop.css('animation', '.6s burgerBarTopIn forwards');
           this.burgerBarBot.css('animation', '.6s burgerBarBotIn forwards');
           this.opened = true;
         } else {
           this.hero.removeClass('open');
-          this.burger.css('animation', '.3s burgerBGback forwards');
+          //this.burger.css('animation', '.3s burgerBGback forwards');
           this.burgerBarTop.css('animation', '.3s burgerBarTopOut forwards');
           this.burgerBarBot.css('animation', '.3s burgerBarBotOut forwards');
           this.opened = false;
