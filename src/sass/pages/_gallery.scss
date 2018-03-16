@@ -38,6 +38,10 @@
     }
   }
 
+  .grid__img {
+      padding-bottom: 100%;
+  }
+
   .slide__container {
     @media screen and (min-width: $screenMD) {
       width: 100%;
@@ -105,6 +109,7 @@
 
   .overlay {
     opacity: 0;
+    height: 100%;
     @media screen and (min-width: $screenSM) {
       opacity: .3;
     }

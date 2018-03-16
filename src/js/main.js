@@ -3,7 +3,7 @@ var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 var footerHeight = $('.info').height();
 var isMobile = is_mobile();
-var $squares = [$('.block--last-product .slide__img'), $('.block--last-painting .slide__img'), $('.block--last-product .slide__link'), $('.block--last-painting .slide__link'), $('.grid__img')];
+var $squares = [$('.block--last-product .slide__img'), $('.block--last-painting .slide__img'), $('.block--last-product .slide__link'), $('.block--last-painting .slide__link')];
 var $body = $(document.body);
 var headerHeight = $('.hero').height();
 var blockList = [];
@@ -85,21 +85,6 @@ function revealList(){
 
 */
 
-if($('.swiper1')){
-    var swiper = new Swiper('.swiper1', {
-          slidesPerView: 1,
-          loop: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-    });
-}
-
 function swiperSingle() {
     if(windowWidth < 700){
         slidesCount = 1;
@@ -124,11 +109,25 @@ function swiperSingle() {
     }
 }
 
-swiperSingle();
-
 $(document).ready(function(){
   revealList();
   squareSizing();
+    if($('.swiper1')){
+        var swiper = new Swiper('.swiper1', {
+              slidesPerView: 1,
+              loop: true,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+        });
+    }
+    swiperSingle();
+    squareSizing();
 });
 
 

@@ -5,8 +5,10 @@
   }
   .wrapper {
     display: flex;
-    flex-flow: wrap;
     padding: 100px $gutter 120px;
+    @media screen and (min-width: $screenSM) {
+        flex-flow: wrap;
+    }
     @media screen and (min-width: $screenLG) {
         padding: 150px $gutter 200px;
     }
@@ -27,6 +29,7 @@
   }
   .info__column--elsewhere {
     margin-left: 5%;
+    flex-basis: 30%;
     @media screen and (min-width: $screenLG) {
       margin-left: 10% !important;
     }
@@ -68,14 +71,23 @@
   #search {
     position: relative;
     margin-top: $gutter;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    input:not(.inputSubmit) {
+        max-width: 300px;
+    }
   }
   .fa-search {
     position: absolute;
     left: 1rem;
-    top: 50%;
+    top: 16px;
     transform: translateY(-50%);
     color: $blue;
     font-size: 2.2rem;
+    @media screen and (min-width: $screenSM) {
+        top: 22.5px;
+    }
   }
 }
 

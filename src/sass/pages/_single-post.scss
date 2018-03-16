@@ -1,3 +1,29 @@
+.singlepostpage {
+    @media screen and (min-width: $screenSM) {
+        .block__link {
+            position: relative;
+            padding-bottom: 3px;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0%;
+                height: 1px;
+                background: $accentColor;
+                opacity: .8;
+                @include transition;
+            }
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 .block--headline {
     .block__img {
         position: static;
@@ -52,6 +78,10 @@
     }
     .block__link--more {
         padding-top: $gutter;
+        margin-right: 80%;
+        @media screen and (min-width: $screenLG) {
+            margin-right: 25%;
+        }
     }
     .block__title {
         border-bottom: $borderLight;
@@ -59,6 +89,7 @@
     }
     .block__container {
         display: flex;
+        justify-content: space-between;
         align-items: flex-start;
         flex-flow: wrap;
         height: auto;
@@ -66,7 +97,7 @@
             display: block;
             flex-basis: 47%;
             @media screen and (min-width: $screenLG) {
-                flex-basis: 582px;
+                flex-basis: 360px;
             }
         }
         &--when {

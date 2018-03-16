@@ -6,6 +6,7 @@
   align-items: center;
   background: url('../img/Pallette 1.jpg');
   background-size: cover;
+  background-attachment: fixed;
   overflow: hidden;
   @media screen and (min-width: $screenLG) {
       padding: $marginMD;

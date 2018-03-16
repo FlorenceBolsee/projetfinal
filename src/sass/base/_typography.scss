@@ -172,6 +172,12 @@ a {
     }
 }
 
+.block--search {
+    .slide__title {
+        text-align: left;
+    }
+}
+
 /*
 
 ==============
@@ -339,5 +345,20 @@ small {
         text-align: center;
         color: $grey2;
         font-size: 1.6rem;
+    }
+}
+
+.singlepage {
+    .block__spec, .block__date {
+        color: $accentColor;
+        text-align: left;
+        font-size: 1.4rem;
+    }
+}
+
+.block__results {
+    color: $accentColor;
+    @media screen and (min-width: $screenMD) {
+        font-size: 1.5rem;
     }
 }
