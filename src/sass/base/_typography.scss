@@ -229,43 +229,20 @@ a {
         font-size: 1.6rem;
     }
   }
-  .menu__cart {
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    @media screen and (min-width: $screenSM) {
-        font-size: 1.3rem;
-    }
-    @media screen and (min-width: $screenLG) {
-        font-size: 2rem;
-    }
-  }
   a.menu__cart {
       .midnightHeader.default {
           path {
               fill: $blue !important;
-          }
-          color: $blue !important;
-          &:hover {
-            color: $blue !important;
           }
       }
       .midnightHeader.white {
           path {
               fill: #fff !important;
           }
-        color: #fff !important;
-        &:hover {
-          color: #fff !important;
-        }
       }
       .midnightHeader.grey {
           path {
               fill: $grey3 !important;
-          }
-          color: $grey3 !important;
-          &:hover {
-            color: $grey3 !important;
           }
       }
   }

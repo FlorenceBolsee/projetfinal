@@ -128,11 +128,9 @@ $(document).ready(function(){
     }
     swiperSingle();
     squareSizing();
-});
-
-$(document).ready(function(){
-  // Change this to the correct selector.
-  $('.burger, .menu__cart').midnight();
+    if(windowWidth < 700){
+        $('.burger, .menu__cart').midnight();
+    }
 });
 
 
@@ -284,6 +282,9 @@ $(window).resize(
     swiperSingle();
     squareSizing();
     revealList();
+    if(windowWidth < 700){
+        $('.burger, .menu__cart').midnight();
+    }
   }
 );
 

@@ -105,7 +105,7 @@
   cursor: pointer;
   z-index: 1000 !important;
   @media screen and (min-width: $screenSM) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -189,20 +189,31 @@
     height: 28px !important;
     display: flex !important;
     transition-property: opacity !important;
+    path {
+        fill: #fff !important;
+    }
+    @media screen and (min-width: $screenSM) {
+        width: 20px !important;
+        height: 18px !important;
+    }
     @media screen and (min-width: $screenSM) {
       position: absolute !important;
       background: none !important;
       border: 0 !important;
       padding: 0 !important;
-      width: auto !important;
-      height: auto !important;
       @include transition;
     }
     @media screen and (min-width: $screenLG) {
+        width: 30px !important;
+        height: 28px !important;
         top: $marginMD !important;
         left: $marginLG !important;
     }
   }
+}
+
+.midnightInner {
+    overflow: hidden !important;
 }
 
 .hero.open {
@@ -256,11 +267,13 @@
             height: 85px;
         }
     }
-    .menu__cart, .menu__cart.midnightHeader {
+    a.menu__cart {
         position: fixed !important;
-        color: $blue !important;
         top: $gutter !important;
         left: $gutter !important;
+        path {
+            fill: $blue !important;
+        }
         @media screen and (min-width: $screenLG) {
             left: $marginLG !important;
         }
