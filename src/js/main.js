@@ -130,6 +130,11 @@ $(document).ready(function(){
     squareSizing();
 });
 
+$(document).ready(function(){
+  // Change this to the correct selector.
+  $('.burger, .menu__cart').midnight();
+});
+
 
 /*
 
@@ -154,13 +159,15 @@ var nav = {
     opened: false,
     fixed: false,
     init: function(varScroll){
-      if(windowWidth < 700 && (varScroll < headerHeight)){
+      /*if(windowWidth < 700 && (varScroll < headerHeight)){
         this.cart.addClass('white');
         this.cart.find('svg').addClass('white');
+        this.burger.addClass('white');
       } else {
         this.cart.removeClass('white');
         this.cart.find('svg').removeClass('white');
-      }
+        this.burger.removeClass('white');
+      }*/
       if((windowWidth >= 700 && !isMobile) && varScroll >= headerHeight){
         if(this.fixed == false){
             this.hero.addClass('fixed');

@@ -240,11 +240,34 @@ a {
         font-size: 2rem;
     }
   }
-  .menu__cart.white {
-    color: #fff;
-    &:hover {
-      color: #fff;
-    }
+  a.menu__cart {
+      .midnightHeader.default {
+          path {
+              fill: $blue !important;
+          }
+          color: $blue !important;
+          &:hover {
+            color: $blue !important;
+          }
+      }
+      .midnightHeader.white {
+          path {
+              fill: #fff !important;
+          }
+        color: #fff !important;
+        &:hover {
+          color: #fff !important;
+        }
+      }
+      .midnightHeader.grey {
+          path {
+              fill: $grey3 !important;
+          }
+          color: $grey3 !important;
+          &:hover {
+            color: $grey3 !important;
+          }
+      }
   }
 }
 
