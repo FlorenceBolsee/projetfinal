@@ -9,7 +9,7 @@
   background-attachment: fixed;
   overflow: hidden;
   @media screen and (min-width: $screenLG) {
-      padding: $marginMD;
+      padding: $marginLG;
   }
   .wrapper {
     position: relative;
@@ -295,6 +295,9 @@
             margin-left: $marginLG;
             position: relative;
             bottom: 5px;
+            path {
+              fill: $blue;
+            }
             @media screen and (min-width: $screenLG) {
                 width: 220px;
                 height: 28px;
