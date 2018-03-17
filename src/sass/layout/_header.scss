@@ -67,14 +67,21 @@
   width: 80%;
   height: 2px;
   background: $blue;
+  @include transition ($duree: .1s);
   &--top {
     top: 7px;
+    &.in {
+      transform: translateX(-50%) rotate(-45deg) !important;
+    }
   }
   &--mid {
-    top: 13px;
+    top: 14px;
   }
   &--bot {
-    bottom: 7px;
+    top: 21px;
+    &.in {
+      transform: translateX(-50%) rotate(45deg) !important;
+    }
   }
 }
 
@@ -237,17 +244,8 @@
       border-right: 1px solid transparent !important;
       .burger__bar {
           background: $blue !important;
-          &--top {
-             top: 13px !important;
-             transform: translateX(-50%) rotate(-45deg) !important;
-          }
           &--mid {
               width: 0 !important;
-          }
-          &--bot {
-              top: 13px !important;
-              bottom: auto !important;
-              transform: translateX(-50%) rotate(45deg) !important;
           }
       }
     }
@@ -348,7 +346,7 @@
   100%{top: auto !important; bottom: 7px !important; transform: translateX(-50%) !important;}
 }
 
-/*@keyframes burgerBGgo {
+@keyframes burgerBGgo {
     0%{background: $blue; border-top: 1px solid #fff; border-right: 1px solid #fff;}
     100%{background: none; border-top: 1px solid transparent; border-right: 1px solid transparent;}
 }
@@ -357,7 +355,7 @@
     0%{background: none; border-top: 1px solid transparent; border-right: 1px solid transparent;}
     99%{background: none; border-top: 1px solid transparent; border-right: 1px solid transparent;}
     100%{background: $blue; border-top: 1px solid #fff; border-right: 1px solid #fff;}
-}*/
+}
 
 /*
 

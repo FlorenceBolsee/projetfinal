@@ -43,18 +43,6 @@ function headerSizing(){
 
 headerSizing();
 
-function squareSizing(){
-    $squares.forEach(function(square){
-        var squareHeight = square.width();
-        square.css({
-          'height': squareHeight
-        });
-        square.closest('.block__container').css({
-            'height': squareHeight
-        });
-    });
-}
-
 var left;
 
 function revealList(){
@@ -111,7 +99,6 @@ function swiperSingle() {
 
 $(document).ready(function(){
   revealList();
-  squareSizing();
     if($('.swiper1')){
         var swiper = new Swiper('.swiper1', {
               slidesPerView: 1,
@@ -127,7 +114,6 @@ $(document).ready(function(){
         });
     }
     swiperSingle();
-    squareSizing();
     if(windowWidth < 700){
         $('.burger, .menu__cart').midnight();
     }
@@ -157,15 +143,6 @@ var nav = {
     opened: false,
     fixed: false,
     init: function(varScroll){
-      /*if(windowWidth < 700 && (varScroll < headerHeight)){
-        this.cart.addClass('white');
-        this.cart.find('svg').addClass('white');
-        this.burger.addClass('white');
-      } else {
-        this.cart.removeClass('white');
-        this.cart.find('svg').removeClass('white');
-        this.burger.removeClass('white');
-      }*/
       if((windowWidth >= 700 && !isMobile) && varScroll >= headerHeight){
         if(this.fixed == false){
             this.hero.addClass('fixed');
@@ -191,16 +168,20 @@ var nav = {
       this.burger.click(function(){
         if(!this.opened){
           this.hero.addClass('open');
-          //this.burger.css('animation', '.3s burgerBGgo forwards');
-          this.burgerBarTop.css('animation', '.6s burgerBarTopIn forwards');
-          this.burgerBarBot.css('animation', '.6s burgerBarBotIn forwards');
           this.opened = true;
+          $('.burger__bar--top').stop().animate({'top': '14px'}, 300, function(){
+            $('.burger__bar--top').addClass('in');
+          });
+          $('.burger__bar--bot').stop().animate({'top': '14px'}, 300, function(){
+            $('.burger__bar--bot').addClass('in');
+          });
         } else {
           this.hero.removeClass('open');
-          //this.burger.css('animation', '.3s burgerBGback forwards');
-          this.burgerBarTop.css('animation', '.3s burgerBarTopOut forwards');
-          this.burgerBarBot.css('animation', '.3s burgerBarBotOut forwards');
           this.opened = false;
+          $('.burger__bar--top').removeClass('in');
+          $('.burger__bar--top').stop().animate({'top': '7px'}, 200);
+          $('.burger__bar--bot').removeClass('in');
+          $('.burger__bar--bot').stop().animate({'top': '21px'}, 200);
         }
       }.bind(this));
     }
@@ -280,7 +261,6 @@ $(window).resize(
     nav.init(scrollLevel);
     headerSizing();
     swiperSingle();
-    squareSizing();
     revealList();
     if(windowWidth < 700){
         $('.burger, .menu__cart').midnight();

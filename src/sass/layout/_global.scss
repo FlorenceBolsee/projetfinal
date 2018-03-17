@@ -146,6 +146,9 @@ section {
       max-width: 600px;
     }
   }
+  .slide__img {
+    padding-bottom: 100%;
+  }
 }
 
 @supports (object-fit: cover){
@@ -321,6 +324,7 @@ section {
 
 .slide__img--instagram {
     display: block;
+    padding-bottom: 100%;
 }
 
 .swiper-button-next, .swiper-button-prev {

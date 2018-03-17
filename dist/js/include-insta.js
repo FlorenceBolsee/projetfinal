@@ -23,7 +23,7 @@ function instaDisplay(){
 
 instaDisplay();
 
-function squareSizing(){
+/*function squareSizing(){
     $squares.forEach(function(square){
         var squareHeight = square.width();
         square.css({
@@ -33,7 +33,7 @@ function squareSizing(){
             'height': squareHeight
         });
     });
-}
+}*/
 
 /*
 
@@ -72,7 +72,7 @@ var instagram = {
                 },
               });
               $squares.push($('.slide__link--instagram'), $('.slide__img--instagram'), $('.block--instagram .overlay--art'));
-              squareSizing();
+              //squareSizing();
         }.bind(this))
         .fail (function() {
           $('.block__instagram').css('display', 'none');
@@ -93,7 +93,7 @@ instagram.request();
 $(window).resize(
   function(){
     windowWidth = $(window).width();
-    squareSizing();
+    //squareSizing();
     instaDisplay();
     instagram.request();
   }
