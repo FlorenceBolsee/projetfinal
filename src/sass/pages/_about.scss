@@ -3,7 +3,7 @@
         .wrapper:not(.wrapper--about){
             padding-top: 0;
             flex-basis: 70%;
-            padding-left: 0;
+            padding-left: $gutter;
         }
         .block__text:not(.block__text--2) {
             margin-top: 0;

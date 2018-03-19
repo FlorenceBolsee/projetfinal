@@ -66,7 +66,7 @@
   display: inline-block;
   width: 80%;
   height: 2px;
-  background: $blue;
+  background: #fff;
   @include transition ($duree: .1s);
   &--top {
     top: 7px;
@@ -95,6 +95,11 @@
         .burger__bar {
             background: $grey3;
         }
+    }
+    .midnightHeader.default {
+      .burger__bar {
+        background: $blue;
+      }
     }
 }
 

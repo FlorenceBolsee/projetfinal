@@ -548,6 +548,11 @@ section {
             left: 55%;
         }
     }
+    .block--last-painting {
+      .slide__text {
+        margin-right: $gutter;
+      }
+    }
     .block--last-product {
         .swiper-slide {
             flex-flow: row-reverse;
@@ -568,6 +573,9 @@ section {
         }
         .swiper-button-prev {
             left: 38%;
+        }
+        .slide__text {
+          margin-left: $gutter;
         }
     }
     .block--last-news, .block--last-post {
@@ -615,7 +623,7 @@ section {
     }
     .block--exhibition {
         text-align: center;
-        padding: $marginMD 0;
+        padding: $marginMD $gutter;
     }
     .block--testimonials {
         position: relative;
@@ -672,13 +680,14 @@ section {
     }
     .block--about {
         .wrapper:not(.wrapper--about) {
-            padding-left: 0;
+            padding-left: $gutter;
             width: 100%;
         }
     }
     .block--commissions {
         .wrapper:not(.wrapper--about) {
             padding-left: 0;
+            padding-right: $gutter;
         }
     }
     .block--last-painting, .block--last-product {

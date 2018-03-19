@@ -26,6 +26,7 @@
         flex-basis: 100%;
         height: auto;
         border-bottom: $borderLight;
+        padding-bottom: $gutter;
         @media screen and (min-width: $screenLG) {
             flex-basis: 75%;
             margin-left: 5%;

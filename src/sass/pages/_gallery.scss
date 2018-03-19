@@ -3,12 +3,13 @@
     @supports (max-width: 1200px) {
       max-width: 1200px;
     }
-    width: 1200px;
     margin: 0 auto;
     padding: $gutter;
+    width: 100%;
   }
   @media screen and (min-width: $screenLG) {
     padding: 0;
+    width: 1200px;
   }
   .grid {
     width: 100%;
@@ -30,7 +31,7 @@
       padding: $gutter / 2;
     }
     @media screen and (min-width: $screenMD) {
-      width: 33%;
+      width: 33.33%;
       padding: 10px;
     }
     @media screen and (min-width: $screenLG) {
@@ -55,6 +56,12 @@
 
   .slide__title {
     margin-bottom: $marginMD;
+    @include transition;
+    &:hover {
+      @media screen and (min-width: $screenSM){
+        opacity: .8;
+      }
+    }
   }
 
   .button-group {

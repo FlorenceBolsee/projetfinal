@@ -343,6 +343,8 @@ small {
     }
     input {
         text-align: center;
+    }
+    textarea, input {
         color: $grey2;
         font-size: 1.6rem;
     }

@@ -15,11 +15,17 @@
         align-self: stretch;
         @media screen and (min-width: $screenMD) {
             flex-basis: 49%;
+            @supports (width: calc(50% - 1rem)) {
+              flex-basis: calc(50% - .9rem);
+            }
         }
     }
     .contact__block--textarea {
         @media screen and (min-width: $screenMD) {
             margin-left: 2%;
+            @supports (width: calc(50% - 1rem)) {
+              margin-left: $gutter;
+            }
         }
     }
     .contact__element {
