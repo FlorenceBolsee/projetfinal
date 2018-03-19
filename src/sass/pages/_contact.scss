@@ -1,11 +1,9 @@
 .block--contact {
     padding: 0 $gutter;
-    flex-direction: column;
     align-items: center;
     @include transition($duree : .6s);
     transition-property: opacity, transform;
     @media screen and (min-width: $screenMD) {
-        flex-direction: row;
         flex-flow: wrap;
     }
     @media screen and (min-width: $screenLG) {
