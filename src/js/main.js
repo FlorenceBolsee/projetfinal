@@ -3,11 +3,11 @@ var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 var footerHeight = $('.info').height();
 var isMobile = is_mobile();
-var $squares = [$('.block--last-product .slide__img'), $('.block--last-painting .slide__img'), $('.block--last-product .slide__link'), $('.block--last-painting .slide__link')];
 var $body = $(document.body);
 var headerHeight = $('.hero').height();
 var blockList = [];
 var slidesCount;
+var midnightTarget = $('.burger, .menu__cart');
 
 function is_mobile() {
   if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
@@ -115,7 +115,7 @@ $(document).ready(function(){
     }
     swiperSingle();
     if(windowWidth < 700){
-        $('.burger, .menu__cart').midnight();
+        midnightTarget.midnight();
     }
 });
 
@@ -258,12 +258,13 @@ $(window).resize(
     windowHeight = $(window).height();
     footerHeight = $('.info').height();
     headerHeight = $('.hero').height();
+    midnightTarget = $('.burger, .menu__cart');
     nav.init(scrollLevel);
     headerSizing();
     swiperSingle();
     revealList();
     if(windowWidth < 700){
-        $('.burger, .menu__cart').midnight();
+        midnightTarget.midnight();
     }
   }
 );
