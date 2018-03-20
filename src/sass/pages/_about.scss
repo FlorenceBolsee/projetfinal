@@ -16,3 +16,11 @@
         }
     }
 }
+
+.block--about1 {
+    @media screen and (min-width: $screenLG) {
+        .wrapper:not(.wrapper--about){
+            padding-left: 0;
+        }
+    }
+}
