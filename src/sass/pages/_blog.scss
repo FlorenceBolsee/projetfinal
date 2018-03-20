@@ -1,6 +1,7 @@
 .block--blog {
     .block__post {
         padding-bottom: $gutter;
+        width: 100%;
     }
     .slide__link {
         width: 100%;
@@ -44,6 +45,7 @@
     .wrapper--blog {
         .wrapper {
             justify-content: flex-start;
+            width: 100%;
         }
     }
     .block__link {

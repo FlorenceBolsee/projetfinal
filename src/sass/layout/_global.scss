@@ -151,28 +151,23 @@ section {
   }
 }
 
-@supports (object-fit: cover){
-    .block__container, .slide__link {
-      .block__illu {
-        display: block;
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-      }
-      .slide__img {
-          display: block;
-          object-fit: cover;
-          width: 100%;
-      }
-    }
-    .block--testimonials {
-      .block__illu {
-        height: 320px;
-        }
+.block__container, .slide__link {
+  .block__illu {
+    display: block;
+    width: 100%;
+    height: 300px;
+  }
+  .slide__img {
+      display: block;
+      object-fit: cover;
+      width: 100%;
+  }
+}
+.block--testimonials {
+  .block__illu {
+    height: 320px;
     }
 }
-
-
 
 /*
 

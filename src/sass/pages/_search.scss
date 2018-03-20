@@ -1,4 +1,7 @@
 .block--search {
+    .block__post {
+        width: 100%;
+    }
     .wrapper--blog {
         justify-content: flex-start;
         padding: 0 $gutter $marginSM;

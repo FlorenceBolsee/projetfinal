@@ -37,9 +37,12 @@
   }
 }
 .hero__logo {
-  max-width: 100%;
   @supports (object-fit: contain) {
+    max-width: 100%;
     object-fit: contain;
+  }
+  @media screen and (min-width: $screenSM) {
+      width: 100%;
   }
   @media screen and (min-width: $screenLG) {
     max-width: 1200px;

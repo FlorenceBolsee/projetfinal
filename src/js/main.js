@@ -280,6 +280,9 @@ $(window).resize(
 */
 
 if(navigator.userAgent.match(/Trident\/7\./) || window.navigator.userAgent.indexOf("Edge") > -1) { // if IE
+        if(windowWidth > 1260){
+            $('.block--about1 .wrapper:not(.wrapper--about), .block--about2 .wrapper:not(.wrapper--about)').css('padding-left', 0);
+        }
         $('body').on("mousewheel", function () {
             // remove default behavior
             event.preventDefault();
